@@ -20,7 +20,7 @@ class OrderController extends AbstractController
 {
     public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
-    }
+    }    
 
     #[Route('/order', name: 'app_order')]
     public function index(EntityManagerInterface $em, Request $req): Response
