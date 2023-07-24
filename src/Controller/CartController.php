@@ -27,7 +27,6 @@ class CartController extends AbstractController
         ]);
     }
 
-    
     #[Route('/cart/add/{product_id}', name: 'app_cart_add', methods: 'post')]
     public function add(int $product_id, Request $request, EntityManagerInterface $em): Response
     {
