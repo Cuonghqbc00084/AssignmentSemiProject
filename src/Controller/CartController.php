@@ -37,6 +37,7 @@ class CartController extends AbstractController
         $session->set('cart', $cart_manager);
         return new RedirectResponse($this->urlGenerator->generate('app_cart'));
     }
+    
     #[Route('/cart/remove/{product_id}', name: 'app_cart_remove')]
     public function remove(int $product_id, Request $request, EntityManagerInterface $em): Response
     {
@@ -61,3 +62,4 @@ class CartController extends AbstractController
         return new RedirectResponse($this->urlGenerator->generate('app_cart'));
     }
 }
+
