@@ -40,7 +40,7 @@ class InvoiceController extends AbstractController
         ]);
     }
 
-    #[Route('/invoice/ds', name: 'app_ds_invoice')]
+    #[Route('/invoice/ds', name: 'app_ds_Invoice')]
     public function list_inv(EntityManagerInterface $em): Response
     {
         $query = $em->createQuery('SELECT inv FROM App\Entity\Order inv');
