@@ -13,10 +13,10 @@ class InvoiceDetailFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('quantity',NumberType::class)
-            ->add('price',NumberType::class)
-            ->add('o',NumberType::class)
-            ->add('item',NumberType::class)
+            ->add('quantity')
+            ->add('price')
+            ->add('o')
+            ->add('item')
         ;
     }
 
