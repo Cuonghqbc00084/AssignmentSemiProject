@@ -29,9 +29,15 @@
                     <td>{{inv.getCustomerAddress()}}</td>
                     <td>{{inv.getCustomerPhone()}}</td>
                     <td>{{inv.getTotalPrice()}}</td>
-                    <td>{{inv.isStatus()}}</td>
+                    <td>{{inv.isStatus()}}
+                        {# {% if isStatus() == false %}
+                            <p>Deliveried</p>
+                        {% elseif isStatus() == true %}
+                            <p>Deliverying</p> #}
+                    </td>
+
                     <td>
-                        <a href="{{path('app_invoice_detail',{'id':invd.getId()})}}" class="btn btn-warning"> Detail</a>
+                        <a href="{{path('app_ds_Invoicedetail',{'id':inv.getId()})}}" class="btn btn-warning"> Detail</a>
                     </td>
                 </tr>
              {% endfor %}
@@ -40,3 +46,5 @@
 </div>
 
 {% endblock %}
+
+

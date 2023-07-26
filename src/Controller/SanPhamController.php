@@ -74,7 +74,7 @@ class SanPhamController extends AbstractController
                 $fileName = $fileUploader->upload($file);
                 $data->setPhoto($fileName);
             }
-            $sp->setName($data->getName())->setGia($data->getGia());
+            $sp->setName($data->getName())->setPrice($data->getPrice());
             $em->flush();
             
             return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham'));

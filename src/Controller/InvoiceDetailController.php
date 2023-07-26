@@ -18,7 +18,7 @@ class InvoiceDetailController extends AbstractController
     public function __construct(private UrlGeneratorInterface $urlGenerator)
         {
         }
-    #[Route('/invoice_detail/detail', name: 'app_invoice_detail')]
+    #[Route('/invoice/detail', name: 'app_invoice_detail')]
     public function index(): Response
     {
         $invd = new OrderItem();
@@ -40,7 +40,7 @@ class InvoiceDetailController extends AbstractController
         ]);
     }
 
-    #[Route('/invoicedetail/ds', name: 'app_ds_Invoicedetail')]
+    #[Route('/invoicedetail', name: 'app_ds_Invoicedetail')]
     public function list_invd(EntityManagerInterface $em): Response
     {
         $query = $em->createQuery('SELECT invd FROM App\Entity\OrderItem invd');
