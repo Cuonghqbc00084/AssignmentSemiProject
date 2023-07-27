@@ -3,13 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2023 at 11:37 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Generation Time: Jul 20, 2023 at 08:08 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -29,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(150) NOT NULL
+  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -43,24 +44,11 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer_user`
---
-
-CREATE TABLE `customer_user` (
-  `id` int(11) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(180) NOT NULL,
-  `roles` longtext NOT NULL COMMENT '(DC2Type:json)'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `doctrine_migration_versions`
 --
 
 CREATE TABLE `doctrine_migration_versions` (
-  `version` varchar(191) NOT NULL,
+  `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -75,9 +63,7 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20230621095315', '2023-06-21 11:59:05', 83),
 ('DoctrineMigrations\\Version20230622060903', '2023-06-22 08:09:43', 184),
 ('DoctrineMigrations\\Version20230704082653', '2023-07-04 10:27:09', 74),
-('DoctrineMigrations\\Version20230719044215', '2023-07-19 06:42:34', 364),
-('DoctrineMigrations\\Version20230721083235', '2023-07-21 10:32:45', 175),
-('DoctrineMigrations\\Version20230722134807', '2023-07-22 15:48:23', 77);
+('DoctrineMigrations\\Version20230719044215', '2023-07-19 06:42:34', 364);
 
 -- --------------------------------------------------------
 
@@ -87,10 +73,10 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `message` varchar(255) NOT NULL
+  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -110,9 +96,9 @@ INSERT INTO `feedback` (`id`, `fullname`, `email`, `title`, `message`) VALUES
 
 CREATE TABLE `messenger_messages` (
   `id` bigint(20) NOT NULL,
-  `body` longtext NOT NULL,
-  `headers` longtext NOT NULL,
-  `queue_name` varchar(190) NOT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `headers` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue_name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `available_at` datetime NOT NULL,
   `delivered_at` datetime DEFAULT NULL
@@ -126,7 +112,7 @@ CREATE TABLE `messenger_messages` (
 
 CREATE TABLE `note` (
   `id` int(11) NOT NULL,
-  `message` varchar(255) NOT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -138,9 +124,9 @@ CREATE TABLE `note` (
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
-  `customer_address` varchar(255) NOT NULL,
-  `customer_phone` varchar(12) NOT NULL,
+  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_phone` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_price` double NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -191,9 +177,9 @@ INSERT INTO `order_item` (`id`, `o_id`, `item_id`, `quantity`, `price`) VALUES
 
 CREATE TABLE `sp` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `price` double NOT NULL,
-  `photo` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gia` double NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cate_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -201,7 +187,7 @@ CREATE TABLE `sp` (
 -- Dumping data for table `sp`
 --
 
-INSERT INTO `sp` (`id`, `name`, `price`, `photo`, `cate_id`) VALUES
+INSERT INTO `sp` (`id`, `name`, `gia`, `photo`, `cate_id`) VALUES
 (7, 'LV', 50000000, '1670560435595-64a7d02b67b67.png', 1),
 (8, 'Dior', 200000000, '1634028313-1adba161ykk-h00n-e03-gh-a9df0dac725542d8bef2b393eeb7f14e-master-64a7d069b805d.webp', 2),
 (9, 'Croissant', 12000, 'mini-butteer-7316b23a95084bd7be725916d01d8544-master-91ea53d64a5143769274a8f974dd4416-grande-6493ebc2d0b75.webp', 1),
@@ -222,11 +208,11 @@ INSERT INTO `sp` (`id`, `name`, `price`, `photo`, `cate_id`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(180) NOT NULL,
-  `roles` longtext NOT NULL COMMENT '(DC2Type:json)',
-  `password` varchar(255) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(30) NOT NULL
+  `username` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -252,13 +238,6 @@ INSERT INTO `user` (`id`, `username`, `roles`, `password`, `first_name`, `last_n
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `customer_user`
---
-ALTER TABLE `customer_user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_D902723EE7927C74` (`email`);
 
 --
 -- Indexes for table `doctrine_migration_versions`
@@ -298,8 +277,8 @@ ALTER TABLE `order`
 --
 ALTER TABLE `order_item`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_52EA1F09DB01246B` (`o_id`),
-  ADD KEY `IDX_52EA1F09126F525E` (`item_id`);
+  ADD KEY `IDX_2A0A990ADB01246B` (`o_id`),
+  ADD KEY `IDX_2A0A990A126F525E` (`item_id`);
 
 --
 -- Indexes for table `sp`
@@ -324,12 +303,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `customer_user`
---
-ALTER TABLE `customer_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `feedback`

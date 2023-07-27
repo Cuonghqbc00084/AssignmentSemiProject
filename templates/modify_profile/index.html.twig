@@ -1,4 +1,4 @@
-{% extends 'baseuser.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Hello ModifyProfileController!{% endblock %}
 
@@ -8,36 +8,37 @@
 </style>
 
 <div class="container">
-    <table id="userRegistration" width="95%">
-            <tr>
-                <th colspan="2" id="userTH">USER MODIFICATION</th>
-            </tr>
-           <tr>
+    <table width="50%">
+        <tr>
+            <th colspan="2">
+                YOUR PROFILE
+            </th>
+        </tr>
+        <tr>
             <td>
                 Username:
             </td>
-            <td><input type="fullname" name="fullname" id="fullname" ></td>
-            </tr>
-            <tr>
+        </tr>
+        <tr>
             <td>
-                Password:
-            </td>
-            </tr>
-            <tr>
-            <td>
-                FirstName:
-            </td>
-            </tr>
-            <tr>
-            <td>
-                LastName:
+                Email:
             </td>
         </tr>
-            <tr id="userRegistration">
-                <td colspan="2">
-                    <input type="submit" value="Confirm" id="modify" name="modifyBtn">
-                </td>
-            </tr>
-        </table>
+        <tr>
+            <td>
+                Phone number:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address:
+            </td>
+        </tr>
+        <tr id="userRegistration">
+            <td colspan="2">
+                <button><a href="index.php?page=ModifyProfile">Modify</a></button>
+            </td>
+        </tr>
+    </table>
 </div>
 {% endblock %}
