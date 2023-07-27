@@ -49,5 +49,14 @@ class FeedbackController extends AbstractController
             "data"=>$lSp
         ]);
     }
+
+    #[Route('/feedback/{id}/delete', name: 'app_delete_feedback')]
+    public function delete(EntityManagerInterface $em, int $id, Request $req): Response
+        {
+            $fb = $em->find(Feedback::class, $id); 
+            $em->remove($fb);
+            $em->flush();
+            return new RedirectResponse($this->urlGenerator->generate('app_ds_feedback'));     
+        }
 }
 
