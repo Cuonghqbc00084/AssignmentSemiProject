@@ -2,27 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\CustomerLogin;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class CustomerLoginType extends AbstractType
+class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('CustomerName', TextType::class )
-            ->add('Password', PasswordType::class)
+            ->add('username')
+            ->add('password')
+            ->add('first_name')
+            ->add('last_name')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => CustomerLogin::class,
+            'data_class' => User::class,
         ]);
     }
 }

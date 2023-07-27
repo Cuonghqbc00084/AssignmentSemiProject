@@ -1,25 +1,14 @@
 {% form_theme feedback_form 'bootstrap_5_layout.html.twig'%}
-{% extends 'baseuser.html.twig' %}
+{# {% extends 'base.html.twig' %} #}
 
 {% block title %}Hello Feedback!{% endblock %}
-{% block stylesheets %}
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
-            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" 
-            crossorigin="anonymous">
-
-            <link rel="stylesheet" href="{{asset('css/adminindex.css')}}"/>
-
-            
-        {% endblock %}
 
 {% block body %}
 
 <div class="container">
     {{form_start(feedback_form)}}
     {{form_widget(feedback_form)}}
-    <input type="submit" value="Submit" class="btn btn-primary"/>
+    <input type="submit" value="submit" class="btn btn-primary"/>
     {{form_end(feedback_form)}}
-
-    
 </div>
 {% endblock %}
