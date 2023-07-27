@@ -19,7 +19,7 @@ class SP
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?float $Gia = null;
+    private ?float $Price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
@@ -52,14 +52,14 @@ class SP
         return $this;
     }
 
-    public function getGia(): ?float
+    public function getPrice(): ?float
     {
-        return $this->Gia;
+        return $this->Price;
     }
 
-    public function setGia(float $Gia): self
+    public function setGia(float $Price): self
     {
-        $this->Gia = $Gia;
+        $this->Price = $Price;
 
         return $this;
     }

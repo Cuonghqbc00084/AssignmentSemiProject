@@ -45,7 +45,7 @@ class OrderController extends AbstractController
                     $product = $em->find(SP::class,$cart_item->getProduct()->getId());
                     $orderItem->setItem($product);
                     $orderItem->setQuantity($cart_item->quantity);
-                    $orderItem->setPrice($cart_item->getProduct()->getGia());
+                    $orderItem->setPrice($cart_item->getProduct()->getPrice());
                     $orderItem->setO($order);
                     $em->persist($orderItem);
                     $em->flush();
