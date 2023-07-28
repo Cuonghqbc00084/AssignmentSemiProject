@@ -49,7 +49,7 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
         if (in_array('ROLE_ADMIN', $user->getRoles())) {
             return new RedirectResponse($this->urlGenerator->generate('app_user_manager'));
         } else {
-            return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham'));
+            return new RedirectResponse($this->urlGenerator->generate('app_index'));
         }
 
         // For example:
