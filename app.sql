@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2023 at 11:37 AM
+-- Generation Time: Jul 27, 2023 at 03:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -39,19 +39,6 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Hot'),
 (2, 'Cold');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer_user`
---
-
-CREATE TABLE `customer_user` (
-  `id` int(11) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(180) NOT NULL,
-  `roles` longtext NOT NULL COMMENT '(DC2Type:json)'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -202,17 +189,17 @@ CREATE TABLE `sp` (
 --
 
 INSERT INTO `sp` (`id`, `name`, `price`, `photo`, `cate_id`) VALUES
-(7, 'LV', 50000000, '1670560435595-64a7d02b67b67.png', 1),
-(8, 'Dior', 200000000, '1634028313-1adba161ykk-h00n-e03-gh-a9df0dac725542d8bef2b393eeb7f14e-master-64a7d069b805d.webp', 2),
-(9, 'Croissant', 12000, 'mini-butteer-7316b23a95084bd7be725916d01d8544-master-91ea53d64a5143769274a8f974dd4416-grande-6493ebc2d0b75.webp', 1),
-(10, 'Macaroon', 3000, 'ab8a062da2c6da5b0d4922f26ab063de-6493ec1308732.png', 2),
-(11, 'Tiramisu', 80000, '1200-1200x676-97-6493ec60bcfd2.jpg', 1),
-(12, 'Banana pie', 12000, 'IMG-7179-e1625378432535-large-6492c6775dde6.jpg', 1),
-(13, 'Choco pie', 5000, '8a240de0820c7796c587a7a0ea0f93b0-f08d7902ada54541b106d7911e09638c-6493ea3b0985a.webp', NULL),
-(14, 'Orio BlackPink in your area', 100000, '4-1-6493eaf1724e0.webp', NULL),
-(15, 'Toppo', 15000, 'banh-que-lotte-toppo-huong-vani-nhan-socola-hop-40g-202211181653394432-6493eb26b438b.jpg', NULL),
-(16, 'Bánh share', 10000000, 'Banhbo-64b24a3bd21ae.jpg', NULL),
-(17, 'fdsf', 22212, 'Banhbo-64b395d50edd0.jpg', NULL);
+(7, 'Packback 1', 100000, '6fc5fcb6849d0a2958f3cec459060843-64c2204195830.png', 1),
+(8, 'packback 2', 200000, 'backpack-black-rv23P2E-600-64c22062590a0.jpg', 2),
+(9, 'packback 3', 120000, 'backpack-y1Q1YND-600-64c22076cc3c5.jpg', 1),
+(10, 'packback 4', 300000, 'cdf1eb1f9cc4bd3c75b1fd10f12fc5bf-jpg-720x720q80-64c220865a6da.jpg', 2),
+(11, 'packback 5', 80000, 'eae6fb9ff7894aa85dc868aad444b50f-64c22094e9220.jpg', 1),
+(12, 'packback 6', 120000, 'istockphoto-1258122517-612x612-64c220a3b221c.jpg', 1),
+(13, 'packback 7', 500000, 'vn-11134207-7qukw-lgi3zi0qkrca27-tn-64c220b7a4ee9.jpg', NULL),
+(14, 'packback 8', 100000, 'vn-11134207-7qukw-lglti4krhi7e4d-tn-64c220cbf0c2f.jpg', NULL),
+(15, 'packback 9', 150000, '3707982965-1445275338-64c2211a0dcd4.webp', NULL),
+(16, 'Packback 10', 100000, 'packback-8aa5-64c2212e5ffb1.jpg', NULL),
+(17, 'Packback 11', 100000, 'packback-fdfa-64c2214168f8e.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -236,12 +223,14 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `roles`, `password`, `first_name`, `last_name`) VALUES
 (1, 'Davo2505', '[]', '$2y$13$peS4nLqeKYhugXTmZuGIfOOPJJj59HiULF9bZ82W4KYFPAFdIuEvi', 'Da', 'Vo'),
 (2, 'Davo', '[]', '$2y$13$TAL1MajWXTVDFNoIyVfPP.UIGPhdEgBR6mYYgR2Fo2DegFUCHbliy', 'Da', 'Vo'),
-(3, 'Peter', '[]', '$2y$13$TaHHAjmzs2dk6LGDOiwVYewz5r5hQBisVj1Uf8KNEwRDA7BxQx/Da', 'Da', 'Vo'),
-(4, 'Banana123', '[]', '$2y$13$pL021mxd6mVhFn1opd7iPumBDlT87tbBlpzbhbSp41H9wlYzBeOPu', 'Da', 'Vo'),
+(3, 'Peter', '[\"ROLE_USER\"]', '$2y$13$TaHHAjmzs2dk6LGDOiwVYewz5r5hQBisVj1Uf8KNEwRDA7BxQx/Da', 'Da', 'Vo'),
+(4, 'Banana123', '[\"ROLE_ADMIN\"]', '$2y$13$pL021mxd6mVhFn1opd7iPumBDlT87tbBlpzbhbSp41H9wlYzBeOPu', 'Da', 'Vo'),
 (5, 'Cucumber', '[]', '$2y$13$Ummsr7N6Qgdg/tCjZuLq1uQKOJRNt6BcvrZVB1DwHH4M.StnGQaUK', 'Baby', 'Baby'),
 (6, 'Cucumber123', '[]', '$2y$13$z7eIdUhA5IUYhX.pW/cAfeV/32lYJKbIJAT47whcWSSPGXJDX9Isa', 'Baby', 'Baby'),
 (7, 'Cucumber12345', '[]', '$2y$13$Oro/wK1N1gcEXuHFipcTMOPn443.nNJyvrC/cejmarDHTGoAHFxK2', 'Baby', 'Baby'),
-(9, 'Draco', '[]', '$2y$13$hmj5lRN5xwGfJR4kIKVD5uDWGqFlzADeAQia6CW6mDFYK3UxVeHhS', 'Charlie', 'Harry');
+(9, 'Draco', '[]', '$2y$13$hmj5lRN5xwGfJR4kIKVD5uDWGqFlzADeAQia6CW6mDFYK3UxVeHhS', 'Charlie', 'Harry'),
+(10, 'User1', '[\"ROLE_USER\"]', '$2y$13$K/hXo3RFZKN/JRGOkJReye4gOO0oOlCq2KYcyESOk258Y7E5r9IcG', 'User', '1'),
+(11, 'User2', '[\"ROLE_USER\"]', '$2y$13$UiZ7XKCGa7mB4jDJruVvDeJcFGsoiLw8OUY8wjtBOx9L6AbPr2JIa', 'User', '2');
 
 --
 -- Indexes for dumped tables
@@ -252,13 +241,6 @@ INSERT INTO `user` (`id`, `username`, `roles`, `password`, `first_name`, `last_n
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `customer_user`
---
-ALTER TABLE `customer_user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_D902723EE7927C74` (`email`);
 
 --
 -- Indexes for table `doctrine_migration_versions`
@@ -326,12 +308,6 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `customer_user`
---
-ALTER TABLE `customer_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
@@ -371,7 +347,7 @@ ALTER TABLE `sp`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

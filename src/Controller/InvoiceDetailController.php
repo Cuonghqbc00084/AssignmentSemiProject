@@ -18,29 +18,29 @@ class InvoiceDetailController extends AbstractController
     public function __construct(private UrlGeneratorInterface $urlGenerator)
         {
         }
-    #[Route('/invoice/detail', name: 'app_invoice_detail')]
-    public function index(): Response
-    {
-        $invd = new OrderItem();
-        $form = $this->createForm(InvoiceDetailFormType::class, $invd);
-        $form->handleRequest($req);
+    // #[Route('/invoice/detail', name: 'app_invoice_detail')]
+    // public function index(): Response
+    // {
+    //     $invd = new OrderItem();
+    //     $form = $this->createForm(InvoiceDetailFormType::class, $invd);
+    //     $form->handleRequest($req);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+    //     if($form->isSubmitted() && $form->isValid()) {
+    //         $data = $form->getData();
 
-            $em->persist($data);
-            $em->flush();
+    //         $em->persist($data);
+    //         $em->flush();
         
-        return new RedirectResponse($this->urlGenerator->generate('app_ds_Invoicedetail'));
+    //     return new RedirectResponse($this->urlGenerator->generate('app_ds_Invoicedetail'));
 
-        }
+    //     }
 
-        return $this->render('invoice_detail/index.html.twig', [
-            'invoicedetail_form' => $form->createView(),
-        ]);
-    }
+    //     return $this->render('invoice_detail/index.html.twig', [
+    //         'invoicedetail_form' => $form->createView(),
+    //     ]);
+    // }
 
-    #[Route('/invoicedetail', name: 'app_ds_Invoicedetail')]
+    #[Route('/invoicedetail/{id}', name: 'app_ds_Invoicedetail')]
     public function list_invd(EntityManagerInterface $em): Response
     {
         $query = $em->createQuery('SELECT invd FROM App\Entity\OrderItem invd');

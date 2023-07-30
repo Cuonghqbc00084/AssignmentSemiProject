@@ -22,40 +22,41 @@
             <td>
                 Username:
             </td>
-            <td><input type="fullname" name="fullname" id="fullname" ></td>
         </tr>
         <tr>
             <td>
                 Password:
             </td>
-            <td><input type="password" name="password" id="password" placeholder="Blank if you don't want to update password"> </td>
         </tr>
         <tr>
             <td>
                 FirstName:
             </td>
-             <td><input type="firstname" name="firstname" id="firstname"></td>
         </tr>
         <tr>
             <td>
                 LastName:
             </td>
-            <td><input type="lastname" name="lastname" id="lastname"></td>
         </tr>
-        <a href="{{path('app_modify_profile')}}"> Modify</a>
-
          </thead>
 
-        {% for user in data %}
-				<tr>
+         <tbody>
+            {% for user in data %}
+                <tr>
                     <td>{{loop.index}}</td>
                     <td>{{user.getId()}}</td>
                     <td>{{user.getUsername()}}</td>
                     <td>{{user.getPassword()}}</td>
                     <td>{{user.getFirstName()}}</td>
-                    <td>{{user.getLasttName()}}</td>
-				</tr>
-			{% endfor %}
+                    <td>{{user.getLastName()}}</td>
+                    <td>
+                        <a href="{{path('app_edit_user',{'id':user.getId()})}}" class="btn btn-danger"> Edit</a>
+                        <a href="javascript:deleteuser('{{path('app_delete_user',{'id':user.getId()})}}')" class="btn btn-warning"> Delete</a> 
+                        
+                    </td>
+                </tr>
+             {% endfor %}
+        </tbody>
     </table>
 </div>
 {% endblock %}

@@ -16,7 +16,7 @@ class InvoiceFormType extends AbstractType
             ->add('customer_address')
             ->add('customer_phone')
             ->add('total_price')
-            ->add('status')
+            // ->add('status')
         ;
     }
 

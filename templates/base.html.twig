@@ -23,15 +23,14 @@
         
     <div id="logout">
         
-        <a href="{{path('app_logout')}}"  style="float:right; color:black"><span> Logout </span></a>
+        <a href="{{path('app_logout')}}"  style="float:right; color:black" class="btn btn-danger"><span> Logout </span></a>
         
     </div>
     <div id="menu">
         <ul>
-            <li><a href="{{path('app_indexadmin')}}"><span>HOME</span></a></li>
+            {# <li><a href="{{path('app_indexadmin')}}"><span>HOME</span></a></li> #}
             <li><a href="{{path('app_ds_san_pham')}}"><span>PRODUCT</span></a></li>
-            <li><a href="{{path('app_ds_user')}}"><span> ADMIN ACCOUNT</span></a></li>
-            <li><a href=""><span> CUSTOMER ACCOUNT</span></a></li>
+            <li><a href="{{path('app_user_manager')}}"><span> ACCOUNT</span></a></li>
             <li><a href="{{path('app_ds_Invoice')}}"><span>INVOICE</span></a></li>
             <li><a href="{{path('app_ds_feedback')}}"><span>FEEDBACK</span></a></li>
             

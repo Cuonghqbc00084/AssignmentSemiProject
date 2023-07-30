@@ -20,7 +20,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                target: app_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
@@ -33,7 +33,22 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: '^/index', roles: ROLE_USER }
+        - { path: '^/san/pham', roles: ROLE_ADMIN }
+        - { path: '^/user/manager', roles: ROLE_ADMIN }
+        - { path: '^/user/manager/add', roles: ROLE_ADMIN }
+        - { path: '^/AdministratorPage', roles: ROLE_ADMIN}
+        - { path: '^/invoice', roles: ROLE_ADMIN}
+        - { path: '^/invoicedetail', roles: ROLE_ADMIN}
+        - { path: '^/feedback', roles: ROLE_ADMIN}
+
+        - { path: '^/index', roles: ROLE_USER}
+        - { path: '^/products', roles: ROLE_USER}
+        - { path: '^/contact', roles: ROLE_USER}
+        - { path: '^/cart', roles: ROLE_USER}
+        - { path: '^/order', roles: ROLE_USER}
+        
+
+
 
 when@test:
     security:
