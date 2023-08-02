@@ -1,9 +1,9 @@
+
 {% extends 'baseuser.html.twig' %}
 
-{# {% block title %}Products!{% endblock %} #}
+{% block title %}Hello AboutController!{% endblock %}
 
 {% block stylesheets %}
-
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
@@ -16,53 +16,42 @@
       <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
-     
-   
 {% endblock %}
 
 {% block body %}
-   <table width="100%" border="1" style="border-collapse:collapse">
-    <tr>
-        <th colspan="4"><b>Product</b></th> 
-    </tr>
-
-    {% for sp in data %}
-        {% if loop.index % 3 == 0 %}
-            <tr>
-        {% endif %}
-        <td width="33%">
-            {# <a href="{{ path('product_detail', {'id': row.product_id}) }}"> #}
-                <center>
-                    <b>{{ sp.name }}</b><br/>
-                    <img src="{{ asset('uploads/sanpham/' ~ sp.photo) }}" height="100px"><br/>
-                    {{ sp.price|number_format(0) }} USD
-                </center> 
-                <form>
-                
-                <center><button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':sp.getId()})}}">Add to cart</button> </center> 
-          
-                </form> 
-                {# <center><a href="{{path('app_cart_add',{'product_id':sp.getId()})}}"><button>Add to cart</button></a></center>
-        </td> #}
-        {% if loop.index % 3 == 2 %}
-            </tr>
-        {% endif %}
-        
-        
-    {% endfor %}
-    {% if data|length % 3 != 0 %}
-        </tr>
-    {% endif %}
-    
-</table>
-
-
-{% endblock %}  
-
+<div class="about_section layout_padding">
+    <div class="container">
+       <div class="about_section_main">
+          <div class="row">
+             <div class="col-md-6">
+                <div class="about_taital_main">
+                   <h1 class="about_taital">About Our beauty sotore</h1>
+                   <p class="about_text">labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                   <div class="readmore_bt"><a href="#">Read More</a></div>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div><img src="images/about-img.png" class="image_3"></div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+{% endblock %}
 {% block javascripts %}
+      <script src="{{ asset('js/jquery.min.jss') }}"></script>
+      <script src="{{ asset('js/popper.min.js') }}"></script>
+      <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
+      <script src="{{ asset('js/plugin.js') }}"></script>
+      <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+      <script src="{{ asset('js/custom.js') }}"></script>
+      <script src="{{ asset('js/owl.carousel.js') }}"></script>
+   
 
-      <script src="js/jquery.min.js"></script>
+
+
+      {# <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
       <script src="js/jquery-3.0.0.min.js"></script>
@@ -71,10 +60,10 @@
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
       <!-- javascript --> 
-      <script src="js/owl.carousel.js"></script>
+      <script src="js/owl.carousel.js"></script> #}
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
       <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-      <script>
+<script>
          function openNav() {
            document.getElementById("mySidenav").style.width = "100%";
          }
@@ -82,6 +71,5 @@
          function closeNav() {
            document.getElementById("mySidenav").style.width = "0";
          }
-      </script> 
-
+</script> 
 {% endblock %}

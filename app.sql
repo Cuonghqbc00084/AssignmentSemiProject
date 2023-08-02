@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2023 at 03:07 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- Generation Time: Jul 30, 2023 at 06:31 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(150) NOT NULL
+  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -43,11 +43,38 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customer_regis`
+--
+
+CREATE TABLE `customer_regis` (
+  `id` int(11) NOT NULL,
+  `uesrname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_firstname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_lastname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_user`
+--
+
+CREATE TABLE `customer_user` (
+  `id` int(11) NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `doctrine_migration_versions`
 --
 
 CREATE TABLE `doctrine_migration_versions` (
-  `version` varchar(191) NOT NULL,
+  `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -74,10 +101,10 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `message` varchar(255) NOT NULL
+  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -87,7 +114,8 @@ CREATE TABLE `feedback` (
 INSERT INTO `feedback` (`id`, `fullname`, `email`, `title`, `message`) VALUES
 (1, 'hghghgh', 'ghgh', 'hghg', 'hghg'),
 (2, 'hghghgh', 'ghgh', 'hghg', 'hghg'),
-(7, 'hghghgh', 'ghgh', 'hghg', 'dsfdsf');
+(8, 'dsfdsf', 'dsfhdsui\'@gmail.com', 'dsafdsf', 'dsfdsf'),
+(9, 'sdfdsf', 'saddfs@gmail.com', '321231', 'sdfsdf');
 
 -- --------------------------------------------------------
 
@@ -97,9 +125,9 @@ INSERT INTO `feedback` (`id`, `fullname`, `email`, `title`, `message`) VALUES
 
 CREATE TABLE `messenger_messages` (
   `id` bigint(20) NOT NULL,
-  `body` longtext NOT NULL,
-  `headers` longtext NOT NULL,
-  `queue_name` varchar(190) NOT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `headers` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue_name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `available_at` datetime NOT NULL,
   `delivered_at` datetime DEFAULT NULL
@@ -113,7 +141,7 @@ CREATE TABLE `messenger_messages` (
 
 CREATE TABLE `note` (
   `id` int(11) NOT NULL,
-  `message` varchar(255) NOT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -125,9 +153,9 @@ CREATE TABLE `note` (
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
-  `customer_address` varchar(255) NOT NULL,
-  `customer_phone` varchar(12) NOT NULL,
+  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_phone` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_price` double NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -141,7 +169,10 @@ INSERT INTO `order` (`id`, `customer_name`, `customer_address`, `customer_phone`
 (2, 'sdfsdf', 'dsfsdfsdfdsf', '2123123123', 50000000, 0),
 (3, 'sdfdsf', 'sdafdsf', '1231113', 50000000, 0),
 (4, 'sdfdsf', 'sdafdsf', '1231113', 0, 0),
-(5, 'tgtggf', 'ggfhh', 'bgfhfg', 50000000, 0);
+(5, 'tgtggf', 'ggfhh', 'bgfhfg', 50000000, 0),
+(6, 'huynhcuong', 'Kien Giang', '12312323', 250012000, 0),
+(7, 'efdsf', 'sdfsd', '4121313', 100000000, 0),
+(8, 'dsfsd', 'adsdfsd', '1222323', 150000000, 0);
 
 -- --------------------------------------------------------
 
@@ -168,7 +199,12 @@ INSERT INTO `order_item` (`id`, `o_id`, `item_id`, `quantity`, `price`) VALUES
 (4, 1, 16, 1, 10000000),
 (5, 2, 7, 1, 50000000),
 (6, 3, 7, 1, 50000000),
-(7, 5, 7, 1, 50000000);
+(7, 5, 7, 1, 50000000),
+(8, 6, 7, 1, 50000000),
+(9, 6, 8, 1, 200000000),
+(10, 6, 9, 1, 12000),
+(11, 7, 7, 2, 50000000),
+(12, 8, 7, 3, 50000000);
 
 -- --------------------------------------------------------
 
@@ -178,9 +214,9 @@ INSERT INTO `order_item` (`id`, `o_id`, `item_id`, `quantity`, `price`) VALUES
 
 CREATE TABLE `sp` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double NOT NULL,
-  `photo` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cate_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -189,17 +225,18 @@ CREATE TABLE `sp` (
 --
 
 INSERT INTO `sp` (`id`, `name`, `price`, `photo`, `cate_id`) VALUES
-(7, 'Packback 1', 100000, '6fc5fcb6849d0a2958f3cec459060843-64c2204195830.png', 1),
-(8, 'packback 2', 200000, 'backpack-black-rv23P2E-600-64c22062590a0.jpg', 2),
-(9, 'packback 3', 120000, 'backpack-y1Q1YND-600-64c22076cc3c5.jpg', 1),
-(10, 'packback 4', 300000, 'cdf1eb1f9cc4bd3c75b1fd10f12fc5bf-jpg-720x720q80-64c220865a6da.jpg', 2),
-(11, 'packback 5', 80000, 'eae6fb9ff7894aa85dc868aad444b50f-64c22094e9220.jpg', 1),
-(12, 'packback 6', 120000, 'istockphoto-1258122517-612x612-64c220a3b221c.jpg', 1),
-(13, 'packback 7', 500000, 'vn-11134207-7qukw-lgi3zi0qkrca27-tn-64c220b7a4ee9.jpg', NULL),
-(14, 'packback 8', 100000, 'vn-11134207-7qukw-lglti4krhi7e4d-tn-64c220cbf0c2f.jpg', NULL),
-(15, 'packback 9', 150000, '3707982965-1445275338-64c2211a0dcd4.webp', NULL),
-(16, 'Packback 10', 100000, 'packback-8aa5-64c2212e5ffb1.jpg', NULL),
-(17, 'Packback 11', 100000, 'packback-fdfa-64c2214168f8e.jpg', NULL);
+(7, 'LV', 50000000, '1670560435595-64a7d02b67b67.png', 1),
+(8, 'Dior', 200000000, '1634028313-1adba161ykk-h00n-e03-gh-a9df0dac725542d8bef2b393eeb7f14e-master-64a7d069b805d.webp', 2),
+(9, 'Croissant', 12000, 'balo-dior-grey-64c5dcd8b8aee.jpg', 1),
+(10, 'Macaroon', 3000, 'ab8a062da2c6da5b0d4922f26ab063de-6493ec1308732.png', 2),
+(11, 'Tiramisu', 80000, '1200-1200x676-97-6493ec60bcfd2.jpg', 1),
+(12, 'Banana pie', 12000, 'IMG-7179-e1625378432535-large-6492c6775dde6.jpg', 1),
+(13, 'Choco pie', 5000, '8a240de0820c7796c587a7a0ea0f93b0-f08d7902ada54541b106d7911e09638c-6493ea3b0985a.webp', NULL),
+(14, 'Orio BlackPink in your area', 100000, '4-1-6493eaf1724e0.webp', NULL),
+(15, 'Toppo', 15000, 'banh-que-lotte-toppo-huong-vani-nhan-socola-hop-40g-202211181653394432-6493eb26b438b.jpg', NULL),
+(16, 'Bánh share', 10000000, 'Banhbo-64b24a3bd21ae.jpg', NULL),
+(17, 'fdsf', 22212, 'Banhbo-64b395d50edd0.jpg', NULL),
+(18, 'Dior Grey', 100000000, 'balo-dior-grey-64c5db866e525.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -209,11 +246,11 @@ INSERT INTO `sp` (`id`, `name`, `price`, `photo`, `cate_id`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(180) NOT NULL,
-  `roles` longtext NOT NULL COMMENT '(DC2Type:json)',
-  `password` varchar(255) NOT NULL,
-  `first_name` varchar(50) NOT NULL,
-  `last_name` varchar(30) NOT NULL
+  `username` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -223,14 +260,12 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `roles`, `password`, `first_name`, `last_name`) VALUES
 (1, 'Davo2505', '[]', '$2y$13$peS4nLqeKYhugXTmZuGIfOOPJJj59HiULF9bZ82W4KYFPAFdIuEvi', 'Da', 'Vo'),
 (2, 'Davo', '[]', '$2y$13$TAL1MajWXTVDFNoIyVfPP.UIGPhdEgBR6mYYgR2Fo2DegFUCHbliy', 'Da', 'Vo'),
-(3, 'Peter', '[\"ROLE_USER\"]', '$2y$13$TaHHAjmzs2dk6LGDOiwVYewz5r5hQBisVj1Uf8KNEwRDA7BxQx/Da', 'Da', 'Vo'),
-(4, 'Banana123', '[\"ROLE_ADMIN\"]', '$2y$13$pL021mxd6mVhFn1opd7iPumBDlT87tbBlpzbhbSp41H9wlYzBeOPu', 'Da', 'Vo'),
+(3, 'Peter', '[]', '$2y$13$TaHHAjmzs2dk6LGDOiwVYewz5r5hQBisVj1Uf8KNEwRDA7BxQx/Da', 'Da', 'Vo'),
+(4, 'Banana123', '[]', '$2y$13$pL021mxd6mVhFn1opd7iPumBDlT87tbBlpzbhbSp41H9wlYzBeOPu', 'Da', 'Vo'),
 (5, 'Cucumber', '[]', '$2y$13$Ummsr7N6Qgdg/tCjZuLq1uQKOJRNt6BcvrZVB1DwHH4M.StnGQaUK', 'Baby', 'Baby'),
 (6, 'Cucumber123', '[]', '$2y$13$z7eIdUhA5IUYhX.pW/cAfeV/32lYJKbIJAT47whcWSSPGXJDX9Isa', 'Baby', 'Baby'),
 (7, 'Cucumber12345', '[]', '$2y$13$Oro/wK1N1gcEXuHFipcTMOPn443.nNJyvrC/cejmarDHTGoAHFxK2', 'Baby', 'Baby'),
-(9, 'Draco', '[]', '$2y$13$hmj5lRN5xwGfJR4kIKVD5uDWGqFlzADeAQia6CW6mDFYK3UxVeHhS', 'Charlie', 'Harry'),
-(10, 'User1', '[\"ROLE_USER\"]', '$2y$13$K/hXo3RFZKN/JRGOkJReye4gOO0oOlCq2KYcyESOk258Y7E5r9IcG', 'User', '1'),
-(11, 'User2', '[\"ROLE_USER\"]', '$2y$13$UiZ7XKCGa7mB4jDJruVvDeJcFGsoiLw8OUY8wjtBOx9L6AbPr2JIa', 'User', '2');
+(9, 'Draco', '[]', '$2y$13$hmj5lRN5xwGfJR4kIKVD5uDWGqFlzADeAQia6CW6mDFYK3UxVeHhS', 'Charlie', 'Harry');
 
 --
 -- Indexes for dumped tables
@@ -241,6 +276,19 @@ INSERT INTO `user` (`id`, `username`, `roles`, `password`, `first_name`, `last_n
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer_regis`
+--
+ALTER TABLE `customer_regis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer_user`
+--
+ALTER TABLE `customer_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_D902723EE7927C74` (`email`);
 
 --
 -- Indexes for table `doctrine_migration_versions`
@@ -308,10 +356,22 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `customer_regis`
+--
+ALTER TABLE `customer_regis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `customer_user`
+--
+ALTER TABLE `customer_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `messenger_messages`
@@ -329,25 +389,25 @@ ALTER TABLE `note`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `sp`
 --
 ALTER TABLE `sp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

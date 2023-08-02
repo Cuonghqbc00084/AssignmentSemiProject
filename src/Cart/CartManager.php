@@ -33,4 +33,4 @@ class CartManager
     public function getItems(){
         return $this->items;
     }
-}
+}   
