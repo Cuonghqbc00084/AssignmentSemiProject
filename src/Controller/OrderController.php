@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
+    
 class OrderController extends AbstractController
 {
     public function __construct(private UrlGeneratorInterface $urlGenerator)
@@ -45,7 +45,7 @@ class OrderController extends AbstractController
                     $product = $em->find(SP::class,$cart_item->getProduct()->getId());
                     $orderItem->setItem($product);
                     $orderItem->setQuantity($cart_item->quantity);
-                    $orderItem->setPrice($cart_item->getProduct()->getprice());
+                    $orderItem->setPrice($cart_item->getProduct()->getGia());
                     $orderItem->setO($order);
                     $em->persist($orderItem);
                     $em->flush();
@@ -57,7 +57,7 @@ class OrderController extends AbstractController
                 $em->getConnection()->rollBack();
                 return new RedirectResponse($this->urlGenerator->generate('app_order',["message"=>"Error! Unable to create order"]));
             }
-            return new RedirectResponse($this->urlGenerator->generate('app_products',["message"=>"Successful order creation"]));
+            return new RedirectResponse($this->urlGenerator->generate('app_products',["message"=>"Tạo đơn hàng thành công"]));
         }
 
         return $this->render('order/index.html.twig', [
@@ -67,3 +67,6 @@ class OrderController extends AbstractController
         ]);
     }
 }
+
+
+

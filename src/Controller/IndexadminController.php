@@ -12,7 +12,7 @@ class IndexadminController extends AbstractController
     public function index(): Response
     {
         
-        
+            
         
 
         return $this->render('indexadmin/index.html.twig', [

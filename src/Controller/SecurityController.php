@@ -29,7 +29,5 @@ class SecurityController extends AbstractController
     public function logout(Request $request): void
     {
         $request->getSession()->invalidate();
-
     }
-    
 }

@@ -41,12 +41,18 @@ class InvoiceDetailController extends AbstractController
     // }
 
     #[Route('/invoicedetail/{id}', name: 'app_ds_Invoicedetail')]
-    public function list_invd(EntityManagerInterface $em): Response
+    public function list_invd(EntityManagerInterface $em, int $id, Request $req): Response
     {
         $query = $em->createQuery('SELECT invd FROM App\Entity\OrderItem invd');
         $lSp = $query->getResult();
         return $this->render('invoice_detail/list.html.twig', [
             "data"=>$lSp
         ]);
+
+        // $indt = $em->find(OrderItem::class, $id);
+        // $lSp = $indt->getOrderItems();
+        // return $this->render('invoice_detail/list.html.twig', [
+        //     "data"=>$lSp
+        // ]);
     }
 }
