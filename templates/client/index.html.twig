@@ -1,7 +1,6 @@
-
 {% extends 'baseuser.html.twig' %}
 
-{% block title %}Hello AboutController!{% endblock %}
+{% block title %}Hello ClientController!{% endblock %}
 
 {% block stylesheets %}
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
@@ -19,21 +18,61 @@
 {% endblock %}
 
 {% block body %}
-<div class="about_section layout_padding">
+<div class="customer_section layout_padding">
     <div class="container">
-       <div class="about_section_main">
-          <div class="row">
-             <div class="col-md-6">
-                <div class="about_taital_main">
-                   <h1 class="about_taital">About Our beauty sotore</h1>
-                   <p class="about_text">labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                   <div class="readmore_bt"><a href="#">Read More</a></div>
+       <div class="row">
+          <div class="col-sm-12">
+             <h1 class="customer_taital">What says customers</h1>
+          </div>
+       </div>
+       <div id="main_slider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+             <div class="carousel-item active">
+                <div class="client_section_2">
+                   <div class="client_main">
+                      <div class="client_left">
+                         <div class="client_img"><img src="images/client-img.png"></div>
+                      </div>
+                      <div class="client_right">
+                         <h3 class="name_text">Jonyro</h3>
+                         <p class="dolor_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation  eu </p>
+                      </div>
+                   </div>
                 </div>
              </div>
-             <div class="col-md-6">
-                <div><img src="images/about-img.png" class="image_3"></div>
+             <div class="carousel-item">
+                <div class="client_section_2">
+                   <div class="client_main">
+                      <div class="client_left">
+                         <div class="client_img"><img src="images/client-img.png"></div>
+                      </div>
+                      <div class="client_right">
+                         <h3 class="name_text">Jonyro</h3>
+                         <p class="dolor_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation  eu </p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="carousel-item">
+                <div class="client_section_2">
+                   <div class="client_main">
+                      <div class="client_left">
+                         <div class="client_img"><img src="images/client-img.png"></div>
+                      </div>
+                      <div class="client_right">
+                         <h3 class="name_text">Jonyro</h3>
+                         <p class="dolor_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation  eu </p>
+                      </div>
+                   </div>
+                </div>
              </div>
           </div>
+          <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+          </a>
+          <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+          <i class="fa fa-angle-right"></i>
+          </a>
        </div>
     </div>
  </div>
@@ -73,3 +112,6 @@
          }
 </script> 
 {% endblock %}
+
+{# {% endblock %}
+>>>>>>> a413f74a279b3c7dae596b518515aa7451dff39b #}
