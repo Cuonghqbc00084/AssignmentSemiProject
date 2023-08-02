@@ -15,7 +15,7 @@ use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
+     
 class ProductsController extends AbstractController
 {
     // #[Route('/products', name: 'app_products')]

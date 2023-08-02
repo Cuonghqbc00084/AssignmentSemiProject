@@ -27,7 +27,7 @@ class SecurityController extends AbstractController
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(Request $request): void
     {
-        $request->getSession()->invalidate();
+        $request->getSession()->invalidate();   
     }
     
 }

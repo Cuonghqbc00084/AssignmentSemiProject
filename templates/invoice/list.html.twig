@@ -38,6 +38,7 @@
                         
                     <td>
                         <a href="{{path('app_ds_Invoicedetail',{'id':inv.getId()})}}" class="btn btn-warning"> Detail</a>
+                        <a href="javascript:deleteinv('{{path('app_delete_invoice',{'id':inv.getId()})}}')" class="btn btn-danger"> Delete</a> 
                     </td>
                 </tr>
              {% endfor %}
@@ -45,6 +46,16 @@
     </table>
 </div>
 
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    function deleteinv(url){
+        if(confirm("Do you delete invoice?")){
+            window.location.href = url;
+        }
+    }
+</script>
 {% endblock %}
 
 

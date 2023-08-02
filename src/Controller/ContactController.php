@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
+     
 class ContactController extends AbstractController
 {
     public function __construct(private UrlGeneratorInterface $urlGenerator)
