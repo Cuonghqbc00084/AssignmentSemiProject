@@ -56,7 +56,7 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
         
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__); 
     }
-
+    
     protected function getLoginUrl(Request $request): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);

@@ -21,7 +21,6 @@
                         <td>{{u.getUsername()}}</td>
                         <td>{{u.getFirstName()}} {{u.getLastName()}}</td>
                         <td>
-                            
                             <a href="javascript:deleteu('{{path('app_delete_user_manager',{'id':u.getId()})}}')" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
@@ -35,7 +34,7 @@
 {% block javascripts %}
 <script>
     function deleteu(url){
-        if(confirm("Do you delete user?")){
+        if(confirm("Do you delete Account?")){
             window.location.href = url;
         }
     }
