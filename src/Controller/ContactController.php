@@ -31,8 +31,7 @@ class ContactController extends AbstractController
             $em->persist($data);
             $em->flush();
 
-            return new RedirectResponse($this->urlGenerator->generate('app_contact')); #kết nối dữ liều giữ trang sanpham và trang sanphamds
-            // return new Response("<p>Product Add Succefully!</p>");
+            return new RedirectResponse($this->urlGenerator->generate('app_contact')); 
         }
 
         return $this->render('contact/index.html.twig', [
@@ -40,3 +39,4 @@ class ContactController extends AbstractController
         ]);
     }
 }
+

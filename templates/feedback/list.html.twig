@@ -30,11 +30,10 @@
                     {# <td>{{fb.getTime()}}</td> #}
                     <td>{{fb.getTitle()}}</td>
                     <td>{{fb.getMessage()}}</td>
-                    {# <td>
-                        <a href="{{path('app_edit_san_pham',{'id':sp.getId()})}}" class="btn btn-danger"> Edit</a>
-                        <a href="javascript:deletesp('{{path('app_delete_san_pham',{'id':sp.getId()})}}')" class="btn btn-warning"> Delete</a> 
-                        
-                    </td> #}
+                     <td>
+                        <a href="javascript:deletefb('{{path('app_delete_feedback',{'id':fb.getId()})}}')" class="btn btn-warning"> Delete</a> 
+    
+                    </td>
                 </tr>
              {% endfor %}
         </tbody>
@@ -42,5 +41,16 @@
 </div>
 
 {% endblock %}
+
+{% block javascripts %}
+<script>
+    function deletefb(url){
+        if(confirm("Do you delete feeback?")){
+            window.location.href = url;
+        }
+    }
+</script>
+{% endblock %}
+
 
  
