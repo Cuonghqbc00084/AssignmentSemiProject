@@ -51,13 +51,11 @@ class ProductsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             // $searchTerm = $data['name'];
-
             // Implement your search logic here using Doctrine or any other method
             // $results = $this->getDoctrine()
             //     ->getRepository(Product::class)
             //     ->findBy(['name' => $searchTerm]);
         }
-
         return $this->render('products/list.html.twig', [
             'form' => $form->createView(),
             'results' => $results,
