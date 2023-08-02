@@ -33,4 +33,4 @@ class NoteFormType extends AbstractType
             'data_class' => Note::class,
         ]);
     }
-}
+}   

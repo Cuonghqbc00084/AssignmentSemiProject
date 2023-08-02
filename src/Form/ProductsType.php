@@ -30,4 +30,4 @@ class ProductsType extends AbstractType
             'data_class' => SP::class,
         ]);
     }
-}
+}   

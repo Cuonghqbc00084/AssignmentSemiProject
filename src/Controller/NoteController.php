@@ -31,3 +31,4 @@ class NoteController extends AbstractController
         ]);
     }
 }
+    

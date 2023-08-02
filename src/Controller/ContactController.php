@@ -39,4 +39,4 @@ class ContactController extends AbstractController
             'feedback_form' => $form->createView(),
         ]);
     }
-}
+}   

@@ -60,7 +60,7 @@ class OrderController extends AbstractController
             return new RedirectResponse($this->urlGenerator->generate('app_products',["message"=>"Tạo đơn hàng thành công"]));
         }
 
-        return $this->render('order/index.html.twig', [
+        return $this->render('order/list.html.twig', [
             'order_form' => $form->createView(),
             'cart_manager' => $cart_manager,
             'message' => $message

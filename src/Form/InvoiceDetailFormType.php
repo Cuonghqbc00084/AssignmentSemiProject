@@ -26,4 +26,4 @@ class InvoiceDetailFormType extends AbstractType
             'data_class' => OrderItem::class,
         ]);
     }
-}
+}   

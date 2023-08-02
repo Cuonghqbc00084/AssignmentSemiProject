@@ -1,10 +1,15 @@
-{% extends 'base.html.twig' %}
+
+{% extends 'baseuser.html.twig' %}
 
 {% block title %}Hello Invoice!{% endblock %}
 
 {% block body %}
 
 <div class="container">
+  
+
+			{# <a href="{{path('app_ds_user_invoice')}}" class="btn btn-primary">Confirm</a> #}
+
 
     <table class="table" style="text-align: center"
         <thead>
@@ -15,8 +20,8 @@
                 <td> Address </td>
                 <td> Phone Number </td>
                 <td> Total Price </td>
-                <td> Status </td>
-                <td> Act </td>
+                {# <td> Status </td> #}
+                {# <td> Act </td> #}
             </tr>
          </thead>
 
@@ -31,7 +36,6 @@
                     <td>{{inv.getTotalPrice()}}</td>
                     <td>{{inv.isStatus()}}</td>
                     <td>
-                        {# <a href="{{path('app_invoice_detail',{'id':invd.getId()})}}" class="btn btn-warning"> Detail</a> #}
                     </td>
                 </tr>
              {% endfor %}
@@ -39,4 +43,4 @@
     </table>
 </div>
 
-{% endblock %}
+{% endblock %} 

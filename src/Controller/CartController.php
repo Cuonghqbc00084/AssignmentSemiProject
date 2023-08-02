@@ -62,5 +62,5 @@ class CartController extends AbstractController
         $session->set('cart', $cart_manager);
         return new RedirectResponse($this->urlGenerator->generate('app_cart'));
     }
-}
+}   
 

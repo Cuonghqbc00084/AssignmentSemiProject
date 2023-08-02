@@ -19,4 +19,4 @@ class SuccessController extends AbstractController
             "created"=>$created
         ]);
     }
-}
+}   

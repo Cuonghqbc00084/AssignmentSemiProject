@@ -18,27 +18,27 @@ class InvoiceController extends AbstractController
     public function __construct(private UrlGeneratorInterface $urlGenerator)
         {
         }
-    #[Route('/invoice', name: 'app_invoice')]
-    public function index(): Response
-    {
-        $inv = new Order();
-        $form = $this->createForm(InvoiceFormType::class, $inv);
-        $form->handleRequest($req);
+    // #[Route('/invoice', name: 'app_invoice')]
+    // public function index(): Response
+    // {
+    //     $inv = new Order();
+    //     $form = $this->createForm(InvoiceFormType::class, $inv);
+    //     $form->handleRequest($req);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+    //     if($form->isSubmitted() && $form->isValid()) {
+    //         $data = $form->getData();
 
-            $em->persist($data);
-            $em->flush();
+    //         $em->persist($data);
+    //         $em->flush();
         
-        return new RedirectResponse($this->urlGenerator->generate('app_ds_Invoice'));
+    //     return new RedirectResponse($this->urlGenerator->generate('app_ds_Invoice'));
 
-        }
+    //     }
 
-        return $this->render('invoice/index.html.twig', [
-            'invoice_form' => $form->createView(),
-        ]);
-    }
+    //     return $this->render('invoice/index.html.twig', [
+    //         'invoice_form' => $form->createView(),
+    //     ]);
+    // }
 
     #[Route('/invoice/ds', name: 'app_ds_invoice')]
     public function list_inv(EntityManagerInterface $em): Response
@@ -49,4 +49,14 @@ class InvoiceController extends AbstractController
             "data"=>$lSp
         ]);
     }
-}
+
+    #[Route('user/invoice/ds', name: 'app_ds_user_invoice')]
+    public function list_user(EntityManagerInterface $em): Response
+    {
+        $query = $em->createQuery('SELECT inv FROM App\Entity\Order inv');
+        $lSp = $query->getResult();
+        return $this->render('orderuser/list.html.twig', [
+            "data"=>$lSp
+        ]);
+    }
+}   

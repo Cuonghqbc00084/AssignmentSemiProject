@@ -1,0 +1,46 @@
+{% form_theme order_form 'bootstrap_4_layout.html.twig' %}
+{% extends 'baseuser.html.twig' %}
+
+{% block title %}Cart manager
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+        {{form_start(order_form)}}
+            {{form_widget(order_form)}}
+			<a href="{{path('app_ds_user_invoice')}}" class="btn btn-primary">Confirm</a>
+        {{form_end(order_form)}}
+		<table class="table">
+			<tr>
+				<th>STT</th>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total</th>
+			</tr>
+			{% for item in cart_manager.items %}
+				<tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{item.product.id}}
+                        -
+                        {{item.product.name}}</td>
+                    <td>{{item.product.Price}}</td>
+                    <td>
+                        {{item.quantity}}
+                    </td>
+                    <td>{{item.amount}}</td>
+				</tr>
+			{% endfor %}
+			<tr>
+				<td colspan='4' class='text-center'>SUM</td>
+				<td>{{cart_manager.amount}}</td>
+			</tr>
+		</table>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+{% if message is not empty %}
+    <script> alert("{{message}}");</script>
+{% endif %}
+{% endblock %}

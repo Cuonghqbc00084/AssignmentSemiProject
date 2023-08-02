@@ -23,11 +23,11 @@
 
 {% block body %}
    <table width="100%" border="1" style="border-collapse:collapse">
-    <tr>
-        <th colspan="4"><b>Product</b></th> 
-
-
-    </tr>
+     <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="product_taital">Our Products</h1>
+               </div>
+            </div>
 
     {% for sp in data %}
         {% if loop.index % 3 == 0 %}
@@ -87,3 +87,4 @@
       </script> 
 
 {% endblock %}
+

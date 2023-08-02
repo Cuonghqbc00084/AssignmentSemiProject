@@ -16,4 +16,4 @@ class CartItem{
     public function getProduct(){
         return $this->product;
     }
-}
+}       

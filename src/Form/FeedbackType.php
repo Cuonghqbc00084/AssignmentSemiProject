@@ -28,4 +28,4 @@ class FeedbackType extends AbstractType
             'data_class' => Feedback::class,
         ]);
     }
-}
+}   
