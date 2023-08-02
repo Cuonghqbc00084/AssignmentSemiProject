@@ -122,7 +122,7 @@ INSERT INTO `feedback` (`id`, `fullname`, `email`, `title`, `message`) VALUES
 --
 -- Table structure for table `messenger_messages`
 --
-
+  
 CREATE TABLE `messenger_messages` (
   `id` bigint(20) NOT NULL,
   `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
