@@ -11,7 +11,7 @@ class CartItem{
     
 
     public function getAmount(){
-        return $this->product->getGia() * $this->quantity;
+        return $this->product->getprice() * $this->quantity;
     }
     public function getProduct(){
         return $this->product;
