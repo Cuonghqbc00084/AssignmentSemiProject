@@ -1,0 +1,61 @@
+{% extends 'baseuser.html.twig' %}
+
+{% block title %}Hello ProductDetailController!{% endblock %}
+
+{% block stylesheets %}
+      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
+      {# <img src="{{ asset('Images/fevicon.png') }}" alt="Fevicon"/> #}
+      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+      <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet"/>
+      <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+{% endblock %} 
+
+{% block body %}
+{# <a href="{{path('app_san_pham')}}" class="btn btn-primary" style="float:right;margin-right: 5px "> Add</a>  #}
+<div class="container">
+    <table class="table" style="text-align: center">
+        <thead>
+            <tr >
+                {# <td> No </td> #}
+                {# <td> Product Code  </td> #}
+                <td> Photo </td>
+                <td> Name </td>
+                <td> Price </td>
+                {# <td> Act </td> #}
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for sp in data %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    {# <td>{{sp.getId()}}</td> #}
+                    <td><img src="{{asset('uploads/sanpham/' ~ sp.getPhoto())}}" height="150" /></td>
+                    <td>{{sp.getName()}}</td>
+                    <td>{{sp.getPrice()}}</td>
+                    <td>
+                        {# <a href="{{path('app_edit_san_pham',{'id':sp.getId()})}}" class="btn btn-danger"> Edit</a> #}
+                        {# <a href="javascript:deletesp('{{path('app_delete_san_pham',{'id':sp.getId()})}}')" class="btn btn-warning"> Delete</a> #}
+                    </td>
+                </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{# {% block javascripts %}
+<script>
+    function deletesp(url){
+        if(confirm("Do you delete product?")){
+            window.location.href = url;
+        }
+    }
+</script>
+{% endblock %} #}
