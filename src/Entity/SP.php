@@ -57,7 +57,7 @@ class SP
         return $this->Price;
     }
 
-    public function setGia(float $Price): self
+    public function setPrice(float $Price): self
     {
         $this->Price = $Price;
 
