@@ -29,5 +29,5 @@ class SecurityController extends AbstractController
     {
         $request->getSession()->invalidate();   
     }
-    
+           
 }

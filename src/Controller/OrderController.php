@@ -65,5 +65,5 @@ class OrderController extends AbstractController
             'cart_manager' => $cart_manager,
             'message' => $message
         ]);
-    }
+    }      
 }

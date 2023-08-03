@@ -28,7 +28,8 @@ class UserController extends AbstractController
            'data' => $lUser
         ]);
     }
-
+      
+    
     #[Route('/user/manager/add', name: 'app_user_manager_add')]
     public function add(EntityManagerInterface $em, Request $req, UserPasswordHasherInterface $userPasswordHasher): Response
     {

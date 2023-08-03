@@ -55,3 +55,4 @@ class InvoiceDetailController extends AbstractController
         // ]);
     }
 }
+     
