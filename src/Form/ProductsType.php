@@ -18,7 +18,7 @@ class ProductsType extends AbstractType
     {
         $builder
             ->add('name', TextType::class )
-            ->add('Gia', NumberType::class)
+            ->add('Price', NumberType::class)
             ->add('photo', FileType::class)
             ->add('cate', TextType::class)
         ;

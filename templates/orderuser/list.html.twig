@@ -1,45 +1,29 @@
 
 {% extends 'baseuser.html.twig' %}
 
-{# {% block title %}Hello Invoice!{% endblock %} #}
-
-
-{# {% block stylesheets %}
-
-      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet">
-      <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet"/>
-      <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
  
     
-{% endblock %} #}
+
 
 {% block body %}
 
 <div class="container">
-  
-
-			{# <a href="{{path('app_ds_user_invoice')}}" class="btn btn-primary">Confirm</a> #}
-
 
     <table class="table" style="text-align: center"
         <thead>
             <tr >
                 <td> No </td>
-                <td> Invoice Code  </td>
+
+                {# <td> Invoice Code  </td> #}
+
                 <td> Customer Name </td>
                 <td> Address </td>
                 <td> Phone Number </td>
                 <td> Total Price </td>
-                {# <td> Status </td> #}
-                {# <td> Act </td> #}
+{# 
+                <td> Status </td> 
+                <td> Act </td>  #}
+
             </tr>
          </thead>
 
@@ -47,14 +31,18 @@
             {% for inv in data %}
                 <tr>
                     <td>{{loop.index}}</td>
-                    <td>{{inv.getId()}}</td>
+
+                    {# <td>{{inv.getId()}}</td>  #}
+
                     <td>{{inv.getCustomerName()}}</td>
                     <td>{{inv.getCustomerAddress()}}</td>
                     <td>{{inv.getCustomerPhone()}}</td>
                     <td>{{inv.getTotalPrice()}}</td>
-                    <td>{{inv.isStatus()}}</td>
+
+                    {# <td>{{inv.isStatus()}}</td>
                     <td>
-                    </td>
+                    </td> #}
+
                 </tr>
              {% endfor %}
         </tbody>
@@ -66,29 +54,5 @@
 
 
 
-{# {% block javascripts %}
 
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
-      <!-- javascript --> 
-      <script src="js/owl.carousel.js"></script>
-      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
-      <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-      <script>
-         function openNav() {
-           document.getElementById("mySidenav").style.width = "100%";
-         }
-         
-         function closeNav() {
-           document.getElementById("mySidenav").style.width = "0";
-         }
-      </script> 
-
-{% endblock %} #}
 

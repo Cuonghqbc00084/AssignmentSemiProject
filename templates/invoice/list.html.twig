@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Invoice!{% endblock %}
+{# {% block title %}Hello Invoice!{% endblock %} #}
 
 {% block body %}
 
@@ -30,9 +30,7 @@
                     <td>{{inv.getCustomerPhone()}}</td>
                     <td>{{inv.getTotalPrice()}}</td>
                     <td>{{inv.isStatus()}}</td>
-                    <td>
-                        {# <a href="{{path('app_invoice_detail',{'id':invd.getId()})}}" class="btn btn-warning"> Detail</a> #}
-                    </td>
+                   
                 </tr>
              {% endfor %}
         </tbody>
