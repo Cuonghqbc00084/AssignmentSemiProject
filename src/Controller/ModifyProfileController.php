@@ -20,26 +20,7 @@ class ModifyProfileController extends AbstractController
     #[Route('/modify/profile', name: 'app_modify_profile')]
     public function index(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        // $user = new User();
-        // $form = $this->createForm(RegistrationFormType::class, $user);
-        // $form->handleRequest($request);
-
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     // encode the plain password
-        //     $user->setPassword(
-        //         $userPasswordHasher->hashPassword(
-        //             $user,
-        //             $form->get('password')->getData()
-        //         )
-        //     );
-        //     $user->setRoles(['ROLE_USER']);
-        //     $entityManager->persist($user);
-        //     $entityManager->flush();
-        //     // do anything else you need here, like send an email
-     
-        //     // return $this->redirectToRoute('app_index');
-        // }
-
+        
         return $this->render('modify_profile/index.html.twig', [
             'controller_name' => 'ModifyProfileController',
         ]);

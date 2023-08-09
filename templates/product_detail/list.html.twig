@@ -44,7 +44,7 @@
                     <td>{{detail.getName()}}</td>
                     <td><img src="{{asset('uploads/sanpham/' ~ detail.getphoto())}}" height="150" /></td>
                     <td>{{detail.getPrice()}}</td>
-                    <td><button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':detail.getId()})}}">Add to cart</button></td>
+                    {# <td><button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':detail.getId()})}}">Add to cart</button></td> #}
                 </tr>
             {% endfor %}
         </tbody>
