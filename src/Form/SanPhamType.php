@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Twig\Node\Expression\Test\NullTest;
 
 class SanPhamType extends AbstractType
 {
@@ -19,10 +20,10 @@ class SanPhamType extends AbstractType
             ->add('Name',TextType::class)
             ->add('Price',NumberType::class)
             ->add('photo',FileType::class, 
-                    array('label' => 'photo (png, jpeg)',
+                    ['label' => 'photo (png, jpeg)',
                     'data_class' => null,
                     'required' => false
-                ),
+                ],
     
             );
     }

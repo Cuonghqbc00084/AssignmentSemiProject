@@ -31,32 +31,47 @@
         <tr>
             <td>
                 Username:
-                <input name="" id="" class="" type="text" value="">
+                <input name="" id="userRegistration" class="" type="text" value="">
             </td>
         </tr>
         <tr>
             <td>
                 Email:
-                <input name="" id="" class="" type="text" value="">
+                <input name="" id="userRegistration" class="" type="text" value="">
             </td>
         </tr>
         <tr>
             <td>
                 Phone number:
-                <input name="" id="" class="" type="text" value="">
+                <input name="" id="userRegistration" class="" type="text" value="">
             </td>
         </tr>
         <tr>
             <td>
                 Address:
-                <input name="" id="" class="" type="text" value="">
+                <input name="" id="userRegistration" class="" type="text" value="">
             </td>
         </tr>
         <tr id="userRegistration">
             <td colspan="2">
-                <button type="submit" class="btn btn-primary"><a href="index.php?page=ModifyProfile">Modify</a></button>
+                <button type="submit" ><a href="">Modify</a></button>
             </td>
         </tr>
+        {# {% for user in data %} #}
+                {# <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{user.getId()}}</td>
+                    <td>{{user.getUsername()}}</td>
+                    <td>{{user.getPassword()}}</td>
+                    <td>{{user.getFirstName()}}</td>
+                    <td>{{user.getLastName()}}</td>
+                    {# <td>
+                        <a href="{{path('app_edit_user',{'id':user.getId()})}}" class="btn btn-danger"> Edit</a>
+                        <a href="javascript:deleteuser('{{path('app_delete_user',{'id':user.getId()})}}')" class="btn btn-warning"> Delete</a> 
+                        
+                    </td> #}
+                {# </tr> #}
+             {# {% endfor %} #}
     </table>
 </div>
 {% endblock %}
@@ -94,6 +109,5 @@
            document.getElementById("mySidenav").style.width = "0";
          }
 </script> 
-
-
+ {# <script> alert("{{Confirm succesfully}}");</script> #}
 {% endblock %}

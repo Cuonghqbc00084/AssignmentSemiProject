@@ -47,15 +47,15 @@
                   <a href="{{path('app_client')}}">Client</a>
                   <a href="{{path('app_contact')}}">Contact</a>
                </div>
-               <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
-               <a class="logo" href="{{path('app_index')}}"><img src="images/logo.png"></a></a>
+               <span class="toggle_icon" onclick="openNav()"><img src="/images/toggle-icon.png"></span>
+               <a class="logo" href="{{path('app_index')}}"><img src="/images/logo.png"></a></a>
                <form class="form-inline ">
                   <div class="login_text">
                      <ul>
-                        <li><a href="{{path('app_modify_profile')}}"><img src="images/user-icon.png"></a></li>
-                        <li><a href="{{path('app_cart')}}"><img src="images/bag-icon.png"></a></li>
-                        <li><a href="{{path('app_search')}}"><img src="images/search-icon.png"></a></li>
-                        <li><a href="{{path('app_logout')}}" style="float:right; color:black"><img src="images/logout.png" width="30px"></a></li>
+                        <li><a href="{{path('app_profile')}}"><img src="/images/user-icon.png"></a></li>
+                        <li><a href="{{path('app_cart')}}"><img src="/images/bag-icon.png"></a></li>
+                        {# <li><a href="{{path('app_search')}}"><img src="/images/search-icon.png"></a></li> #}
+                        <li><a href="{{path('app_logout')}}" style="float:right; color:black"><img src="/images/logout.png" width="30px"></a></li>
                      </ul>
                   </div>
                </form>
@@ -75,7 +75,7 @@
     {% block footer %}
       <div class="footer_section layout_padding">
          <div class="container">
-            <div class="footer_logo"><img src="images/footer-logo.png"></div>
+            <div class="footer_logo"><img src="/images/footer-logo.png"></div>
             <div class="contact_section_2">
                <div class="row">
                   <div class="col-sm-4">
@@ -101,7 +101,7 @@
                      </div>
                   </div>
                   <div class="col-sm-4">
-                     <div class="footer_logo_1"><img src="images/footer-logo.png"></a></div>
+                     <div class="footer_logo_1"><img src="/images/footer-logo.png"></a></div>
                      <p class="dummy_text">Quality is top priority</p>
                   </div>
                   <div class="col-sm-4">

@@ -39,7 +39,7 @@
                 <form>
                 
                 <center><button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':sp.getId()})}}">Add to cart</button> </center>
-                <center><a href="{{path('app_product_detail',{'id':sp.getId()})}}" class="btn btn-warning">Detail</a> </center> 
+                <center><a formmethod="post" href="{{path('app_product_detail',{'id':sp.getId()})}}" class="btn btn-warning">Detail</a></center> 
           
                 </form> 
                 {# <center><a href="{{path('app_cart_add',{'product_id':sp.getId()})}}"><button>Add to cart</button></a></center>
@@ -82,5 +82,4 @@
            document.getElementById("mySidenav").style.width = "0";
          }
       </script> 
-
 {% endblock %}
