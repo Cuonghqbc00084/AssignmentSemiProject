@@ -18,19 +18,10 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class ProductsController extends AbstractController
 {
-    // #[Route('/products', name: 'app_products')]
-    // public function index(): Response
-    // {
-    //     return $this->render('products/list.html.twig', [
-    //         'controller_name' => 'ProductsController',
-    //     ]);
-    // }
 
     public function __construct(private UrlGeneratorInterface $urlGenerator)
         {
         }
-
-
     #[Route('/products', name: 'app_products')]
     public function list_sp(EntityManagerInterface $em): Response
     {
@@ -41,28 +32,7 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    #[Route('/search', name: 'app_search')]
-    public function search(Request $request): Response
-    {
-        $form = $this->createForm(ProductsType::class);
-        $form->handleRequest($request);
 
-        $results = [];
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            // $searchTerm = $data['name'];
-
-            // Implement your search logic here using Doctrine or any other method
-            // $results = $this->getDoctrine()
-            //     ->getRepository(Product::class)
-            //     ->findBy(['name' => $searchTerm]);
-        }
-
-        return $this->render('products/list.html.twig', [
-            'form' => $form->createView(),
-            'results' => $results,
-        ]);
-    }
 
 }
 

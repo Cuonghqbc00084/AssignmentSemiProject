@@ -35,11 +35,7 @@
     </head>
     <body>
         
-    {# <div id="logout">
-        
-        <a href="{{path('app_logout')}}"  style="float:right; color:black"><span> Logout </span></a>
-        
-    </div> #}
+
    <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-light bg-light justify-content-between">
@@ -50,7 +46,7 @@
                   <a href="{{path('app_products')}}"> Products</a>
                   <a href="about.html">About</a>
                   <a href="{{path('app_contact')}}">Contact</a>
-                  <a href="{{path('app_order')}}">Order</a>
+                  {# <a href="{{path('app_order')}}">Order</a> #}
 
                </div>
                <span class="toggle_icon" onclick="openNav()"><img src="/images/toggle-icon.png"></span>
@@ -58,9 +54,7 @@
                <form class="form-inline ">
                   <div class="login_text">
                      <ul>
-                        <li><a href="#"><img src="/images/user-icon.png"></a></li>
                         <li><a href="{{path('app_cart')}}"><img src="/images/bag-icon.png"></a></li>
-                        <li><a href="{{path('app_search')}}"><img src="/images/search-icon.png"></a></li>
                         <li><a href="{{path('app_logout')}}" style="float:right; color:black"><img src="/images/logout.png" width="30px"></a></li>
                      </ul>
                   </div>
@@ -131,7 +125,7 @@
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">2020 All Rights Reserved.</p>
+            <p class="copyright_text">2023 All Rights Reserved.</p>
          </div>
       </div>
 

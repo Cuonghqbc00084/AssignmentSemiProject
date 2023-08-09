@@ -10,7 +10,7 @@
         <thead>
             <tr >
                 <td> No </td>
-                <td> Feedback Code  </td>
+                {# <td> Feedback Code  </td> #}
                 <td> Full Name </td>
                 <td> Email </td>
                 {# <td> Time </td> #}
@@ -24,22 +24,32 @@
             {% for fb in data %}
                 <tr>
                     <td>{{loop.index}}</td>
-                    <td>{{fb.getId()}}</td>
+                    {# <td>{{fb.getId()}}</td> #}
                     <td>{{fb.getFullname()}}</td>
                     <td>{{fb.getEmail()}}</td>
                     {# <td>{{fb.getTime()}}</td> #}
                     <td>{{fb.getTitle()}}</td>
                     <td>{{fb.getMessage()}}</td>
-                    {# <td>
-                        <a href="{{path('app_edit_san_pham',{'id':sp.getId()})}}" class="btn btn-danger"> Edit</a>
-                        <a href="javascript:deletesp('{{path('app_delete_san_pham',{'id':sp.getId()})}}')" class="btn btn-warning"> Delete</a> 
+                    <td>
+                        <a href="javascript:deletefb('{{path('app_delete_feedback',{'id':fb.getId()})}}')" class="btn btn-danger"> Delete</a>  
                         
-                    </td> #}
+                    </td> 
                 </tr>
              {% endfor %}
         </tbody>
     </table>
 </div>
 
+{% endblock %}
+
+
+{% block javascripts %}
+<script>
+    function deletefb(url){
+        if(confirm("Do you delete product?")){
+            window.location.href = url;
+        }
+    }
+</script>
 {% endblock %}
 
