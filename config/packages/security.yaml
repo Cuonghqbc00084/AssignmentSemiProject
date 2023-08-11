@@ -17,11 +17,11 @@ security:
             lazy: true
             provider: app_user_provider
             custom_authenticator: App\Security\AppCustomAuthenticator
-# <<<<<<< BC00039
-#             logout:     
-# =======
-#             logout:
-# >>>>>>> main
+
+            logout:     
+
+            logout:
+
                 path: app_logout
                 # where to redirect after logout
                 target: app_login
