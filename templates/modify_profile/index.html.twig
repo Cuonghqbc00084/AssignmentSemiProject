@@ -1,80 +1,49 @@
 {% extends 'baseuser.html.twig' %}
 
 {% block title %}Hello ModifyProfileController!{% endblock %}
-{% block stylesheets %}
-      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
-      {# <img src="{{ asset('Images/fevicon.png') }}" alt="Fevicon"/> #}
-      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-      <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet">
-      <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet"/>
-      <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-{% endblock %}
 
 {% block body %}
 <style>
-   
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
 <div class="container">
-    <table width="50%">
-        <tr>
+    <table class="table" style="text-align: center">
+        <thead>
+            <tr>
             <th colspan="2">
-                YOUR PROFILE
+                MODIFY PROFILE
             </th>
         </tr>
         <tr>
             <td>
-                Username:
-                <input name="" id="userRegistration" class="" type="text" value="">
+                <label for="inputUsername">Username:</label>
+                <input type="text" name="" id="input" class="" autocomplete="" required>
             </td>
         </tr>
         <tr>
             <td>
-                Email:
-                <input name="" id="userRegistration" class="" type="text" value="">
+                <label for="inputPassword">FirstName:</label>
+                <input type="text" name="" id="input" class="" autocomplete="" required>
             </td>
         </tr>
         <tr>
             <td>
-                Phone number:
-                <input name="" id="userRegistration" class="" type="text" value="">
+                <label for="inputPassword">LastName:</label>
+                <input type="text" name="" id="input" class="" autocomplete="" required>
             </td>
         </tr>
         <tr>
             <td>
-                Address:
-                <input name="" id="userRegistration" class="" type="text" value="">
+                <a href="{{path('app_profile')}}">Modify Profile</a></td>
             </td>
         </tr>
-        <tr id="userRegistration">
-            <td colspan="2">
-                <button type="submit" ><a href="">Modify</a></button>
-            </td>
-        </tr>
-        {# {% for user in data %} #}
-                {# <tr>
-                    <td>{{loop.index}}</td>
-                    <td>{{user.getId()}}</td>
-                    <td>{{user.getUsername()}}</td>
-                    <td>{{user.getPassword()}}</td>
-                    <td>{{user.getFirstName()}}</td>
-                    <td>{{user.getLastName()}}</td>
-                    {# <td>
-                        <a href="{{path('app_edit_user',{'id':user.getId()})}}" class="btn btn-danger"> Edit</a>
-                        <a href="javascript:deleteuser('{{path('app_delete_user',{'id':user.getId()})}}')" class="btn btn-warning"> Delete</a> 
-                        
-                    </td> #}
-                {# </tr> #}
-             {# {% endfor %} #}
+         </thead>
     </table>
 </div>
 {% endblock %}
+
 {% block javascripts %}
       <script src="{{ asset('js/jquery.min.jss') }}"></script>
       <script src="{{ asset('js/popper.min.js') }}"></script>
@@ -109,5 +78,4 @@
            document.getElementById("mySidenav").style.width = "0";
          }
 </script> 
- {# <script> alert("{{Confirm succesfully}}");</script> #}
 {% endblock %}

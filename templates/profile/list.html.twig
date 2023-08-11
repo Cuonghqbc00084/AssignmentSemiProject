@@ -12,7 +12,7 @@
 <div class="container">
 
     <table class="table" style="text-align: center">
-        <thead>
+        {# <thead>
             <tr>
             <th colspan="2">
                 YOUR PROFILE
@@ -51,12 +51,39 @@
                     <td>{{user.getLastName()}}</td>
                     <td>
                         <a href="{{path('app_edit_user',{'id':user.getId()})}}" class="btn btn-danger"> Edit</a>
-                        <a href="javascript:deleteuser('{{path('app_delete_user',{'id':user.getId()})}}')" class="btn btn-warning"> Delete</a> 
+                        
                         
                     </td>
                 </tr>
              {% endfor %}
-        </tbody>
+        </tbody> #}
+
+
+
+    <h1>User Profile</h1>
+    <tr>
+        <td>user name</td>
+        <td>first name</td>
+        <td>last name</td>
+        <td>Act</td>
+    </tr>
+    {# <dl>
+        <dt>Username:</dt>
+        <dd>{{ user.username }}</dd>
+        <dt>First Name:</dt>
+        <dd>{{ user.firstName }}</dd>
+        <dt>Last Name:</dt>
+        <dd>{{ user.lastName }}</dd>
+        <!-- Thêm thông tin khác của người dùng vào đây -->
+    </dl> #}
+    <tr>
+        
+        <td>{{ user.username }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td><a href="{{ path('app__profile', {'id': user.id}) }}">Edit Profile</a></td>
+    </tr>
+
     </table>
 </div>
 {% endblock %}
