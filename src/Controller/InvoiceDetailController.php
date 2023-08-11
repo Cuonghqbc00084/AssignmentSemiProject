@@ -48,11 +48,7 @@ class InvoiceDetailController extends AbstractController
             "data"=>$order->getOrderItems()
         ]);
 
-        // $indt = $em->find(OrderItem::class, $id);
-        // $lSp = $indt->getOrderItems();
-        // return $this->render('invoice_detail/list.html.twig', [
-        //     "data"=>$lSp
-        // ]);
+        
     }
 }
      
