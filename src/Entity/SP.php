@@ -20,7 +20,7 @@ class SP
 
     #[ORM\Column]
     private ?float $Price = null;
-
+      
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
 

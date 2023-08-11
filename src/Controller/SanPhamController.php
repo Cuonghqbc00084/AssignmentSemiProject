@@ -77,7 +77,7 @@ class SanPhamController extends AbstractController
             $em->flush();
             
             return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham'));
-        
+               
     }
     return $this->render('san_pham/index.html.twig', [
         'sp_form' => $form->createView(),
