@@ -111,7 +111,7 @@ class Order
     {
         return $this->orderItems;
     }
-
+     
     public function addOrderItem(OrderItem $orderItem): self
     {
         if (!$this->orderItems->contains($orderItem)) {

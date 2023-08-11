@@ -17,7 +17,7 @@ class InvoiceFormType extends AbstractType
             ->add('customer_phone')
             ->add('total_price')
             // ->add('status')
-        ;
+        ;     
     }
 
     public function configureOptions(OptionsResolver $resolver): void

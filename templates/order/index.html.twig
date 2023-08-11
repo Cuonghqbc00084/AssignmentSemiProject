@@ -35,9 +35,27 @@
 				<td colspan='4' class='text-center'>SUM</td>
 				<td>{{cart_manager.amount}}</td>
 			</tr>
+			{# <tbody>
+				{% for user in data %}
+					<tr>
+						<td>{{loop.index}}</td>
+						<td>{{user.getId()}}</td>
+						<td>{{user.getUsername()}}</td>
+						<td>{{user.getPassword()}}</td>
+						<td>{{user.getFirstName()}}</td>
+						<td>{{user.getLastName()}}</td>
+						<td>
+							<a href="{{path('app_edit_user',{'id':user.getId()})}}" class="btn btn-danger"> Edit</a>
+							<a href="javascript:deleteuser('{{path('app_delete_user',{'id':user.getId()})}}')" class="btn btn-warning"> Delete</a> 
+							
+						 </td>
+					</tr>
+				 {% endfor %}
+			</tbody> #}
 		</table>
 	</div>
 {% endblock %}
+
 {% block javascripts %}
 {% if message is not empty %}
     {# <script> alert("{{Confirm succesfully!}}");</script> #}
