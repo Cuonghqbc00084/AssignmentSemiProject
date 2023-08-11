@@ -87,7 +87,7 @@ class SanPhamController extends AbstractController
     #[Route('/san/pham/{id}/delete', name: 'app_delete_san_pham')]
     public function delete(EntityManagerInterface $em, int $id, Request $req): Response
         {
-            $sp = $em->find(SanPham::class, $id); 
+            $sp = $em->find(SP::class, $id); 
             $em->remove($sp);
             $em->flush();
             return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham'));     

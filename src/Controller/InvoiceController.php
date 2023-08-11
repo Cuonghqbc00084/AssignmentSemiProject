@@ -50,12 +50,12 @@ class InvoiceController extends AbstractController
         ]);
     }
 
-    #[Route('/invoice/{id}/delete', name: 'app_delete_invoice')]
-    public function delete(EntityManagerInterface $em, int $id, Request $req): Response
-        {
-            $inv = $em->find(Order::class, $id); 
-            $em->remove($inv);
-            $em->flush();
-            return new RedirectResponse($this->urlGenerator->generate('app_ds_Invoice'));     
-        }
+    // #[Route('/invoice/{id}/delete', name: 'app_delete_invoice')]
+    // public function delete(EntityManagerInterface $em, int $id, Request $req): Response
+    //     {
+    //         $inv = $em->find(Order::class, $id); 
+    //         $em->remove($inv);
+    //         $em->flush();
+    //         return new RedirectResponse($this->urlGenerator->generate('app_ds_Invoice'));     
+    //     }
 }
