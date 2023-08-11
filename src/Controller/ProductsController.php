@@ -15,6 +15,7 @@ use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\File\File;
      
 class ProductsController extends AbstractController
 {
@@ -42,10 +43,12 @@ class ProductsController extends AbstractController
     }
 
     #[Route('/search', name: 'app_search')]
-    public function search(Request $request): Response
+    public function search(EntityManagerInterface $em): Response
     {
+        $query = $em->createQuery('SELECT sp FROM App\Entity\SP sp');
+        $lSp = $query->getResult();
         $form = $this->createForm(ProductsType::class);
-        $form->handleRequest($request);
+        // $form->handleRequest($request);
 
         $results = [];
         if ($form->isSubmitted() && $form->isValid()) {
@@ -61,6 +64,7 @@ class ProductsController extends AbstractController
             'results' => $results,
         ]);
     }
+    
 
 }
 

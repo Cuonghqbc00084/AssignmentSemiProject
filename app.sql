@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
-
+  
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -122,7 +122,7 @@ INSERT INTO `feedback` (`id`, `fullname`, `email`, `title`, `message`) VALUES
 --
 -- Table structure for table `messenger_messages`
 --
-
+  
 CREATE TABLE `messenger_messages` (
   `id` bigint(20) NOT NULL,
   `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,

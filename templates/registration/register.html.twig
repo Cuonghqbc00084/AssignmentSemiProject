@@ -6,9 +6,7 @@
             integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" 
             crossorigin="anonymous">
 
-            <link rel="stylesheet" href="{{asset('css/adminindex.css')}}"/>
-
-            
+            <link rel="stylesheet" href="{{asset('css/adminindex.css')}}"/> 
 {% endblock %}
 
 {% block title %}{% endblock %}
@@ -24,9 +22,8 @@
         {{ form_row(registrationForm.password, {
             label: 'Password'
         }) }}
-        
-
         <button type="submit" class="btn btn-primary">Register</button>
     {{ form_end(registrationForm) }}
 </div>
 {% endblock %}
+

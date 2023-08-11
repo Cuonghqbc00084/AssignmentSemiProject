@@ -6,19 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class IndexadminController extends AbstractController
+class SearchController extends AbstractController
 {
-    #[Route('/AdministratorPage', name: 'app_indexadmin')]
+    #[Route('/search', name: 'app_search')]
     public function index(): Response
     {
-        
-        return $this->render('indexadmin/index.html.twig', [
-            'controller_name' => 'IndexadminController',
+        return $this->render('search/index.html.twig', [
+            'controller_name' => 'SearchController',
         ]);
-
     }
-
-    
-
-    
 }
