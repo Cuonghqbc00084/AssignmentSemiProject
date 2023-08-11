@@ -28,23 +28,16 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
       {% endblock %}
-        
-
-
-        
     </head>
-    <body>
-        
 
+    <body>
    <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-light bg-light justify-content-between">
                <div id="mySidenav" class="sidenav">
                   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                   <a href="{{path('app_index')}}">Home</a>
-                  {# <a href="products.html.twig">Products</a> #}
                   <a href="{{path('app_products')}}"> Products</a>
-                  <a href="about.html">About</a>
                   <a href="{{path('app_contact')}}">Contact</a>
                   {# <a href="{{path('app_order')}}">Order</a> #}
 
@@ -54,6 +47,7 @@
                <form class="form-inline ">
                   <div class="login_text">
                      <ul>
+                        {# <li><a href="{{path('app_profile')}}"><img src="/images/user-icon.png"></a></li> #}
                         <li><a href="{{path('app_cart')}}"><img src="/images/bag-icon.png"></a></li>
                         <li><a href="{{path('app_logout')}}" style="float:right; color:black"><img src="/images/logout.png" width="30px"></a></li>
                      </ul>
@@ -84,7 +78,7 @@
                         <ul>
                            <li>
                               <a href="#">
-                              <i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left10">Address : 41 Cách Mạng Tháng 8, Quận Ninh Kiều, TP. Cần Thơ.</span>
+                              <i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left10">Address : 41 Cach Mang Thang 8, Ninh Kieu District, City. Can Tho.</span>
                               </a>
                            </li>
                            <li>

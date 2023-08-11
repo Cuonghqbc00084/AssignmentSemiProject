@@ -29,6 +29,13 @@
             <h1 class="product_taital">Our Products</h1>
         </div>
     </div>
+   {# <form action="{{ path('app_ds_san_pham') }}" method="GET">
+    <input type="text" name="search" placeholder="Search by name">
+    <button type="submit">Search</button>
+</form> #}
+
+
+
 
     {% for sp in data %}
         {% if loop.index0 % 3 == 0 %}
@@ -56,6 +63,17 @@
         </tr>
     {% endif %}
 </table>
+{# <form action="{{ path('app_products') }}" method="GET">
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort">
+        <option value="name_asc">Name (Ascending)</option>
+        <option value="name_desc">Name (Descending)</option>
+        <option value="price_asc">Price (Low to High)</option>
+        <option value="price_desc">Price (High to Low)</option>
+    </select>
+    <button type="submit">Sort</button>
+</form> #}
+
 
 
 

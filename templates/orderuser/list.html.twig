@@ -8,46 +8,30 @@
 {% block body %}
 
 <div class="container">
-
-    <table class="table" style="text-align: center"
+    <table class="table" style="text-align: center;">
         <thead>
-            <tr >
-                <td> No </td>
-
-                {# <td> Invoice Code  </td> #}
-
-                <td> Customer Name </td>
-                <td> Address </td>
-                <td> Phone Number </td>
-                <td> Total Price </td>
-{# 
-                <td> Status </td> 
-                <td> Act </td>  #}
-
+            <tr>
+                <th>No</th>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Total Price</th>
             </tr>
-         </thead>
-
-         <tbody>
+        </thead>
+        <tbody>
             {% for inv in data %}
-                <tr>
-                    <td>{{loop.index}}</td>
-
-                    {# <td>{{inv.getId()}}</td>  #}
-
-                    <td>{{inv.getCustomerName()}}</td>
-                    <td>{{inv.getCustomerAddress()}}</td>
-                    <td>{{inv.getCustomerPhone()}}</td>
-                    <td>{{inv.getTotalPrice()}}</td>
-
-                    {# <td>{{inv.isStatus()}}</td>
-                    <td>
-                    </td> #}
-
-                </tr>
-             {% endfor %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ inv.getCustomerName() }}</td>
+                <td>{{ inv.getCustomerAddress() }}</td>
+                <td>{{ inv.getCustomerPhone() }}</td>
+                <td>{{ inv.getTotalPrice() }}</td>
+            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
+
 
 {% endblock %}
 

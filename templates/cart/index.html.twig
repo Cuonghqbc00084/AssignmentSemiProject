@@ -5,42 +5,60 @@
 
 {% block body %}
 	<div class="container">
-		<a href="{{path('app_products')}}" class="btn btn-primary">Add another product</a>
-		<table class="table">
-			<tr>
-				<th>STT</th>
-				<th>Product</th>
-				<th>Price</th>
-				<th>Quantity</th>
-				<th>Total</th>
-				<th>Action</th>
-			</tr>
-			{% for item in cart_manager.items %}
-				<tr>
-					<form action="{{path('app_cart_update')}}" method="POST">
-						<td>{{loop.index}}</td>
-						<td>{{item.product.id}}
-							-
-							{{item.product.name}}</td>
-						<td>{{item.product.price}}</td>
-						<td>
-                            <input type='hidden' value='{{item.product.id}}' name='product_id'/>
-							<input type='number' onchange="this.form.submit()" value='{{item.quantity}}' min="1" name='qty'/>
-						</td>
-						<td>{{item.amount}}</td>
-						<td>
-							<a href="{{path('app_cart_remove',{'product_id':item.product.id})}}" class="btn btn-danger">Remove</a>
-						</td>
-					</form>
-				</tr>
-			{% endfor %}
-			<tr>
-				<td colspan='4' class='text-center'>SUM</td>
-				<td>{{cart_manager.amount}}</td>
-			</tr>
-		</table>
-		<a href="{{path('app_order')}}" class="btn btn-warning">Check out</a>
-	</div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Your Cart</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_manager.items %}
+                        <tr>
+                            <form action="{{path('app_cart_update')}}" method="POST">
+                                <td>{{loop.index}}</td>
+                                <td>
+                                    {{item.product.id}} - {{item.product.name}}
+                                </td>
+                                <td>{{item.product.price}}</td>
+                                <td>
+                                    <input type='hidden' value='{{item.product.id}}' name='product_id'/>
+                                    <input type='number' onchange="this.form.submit()" value='{{item.quantity}}' min="1" name='qty' class="form-control"/>
+                                </td>
+                                <td>{{item.amount}}</td>
+                                <td>
+                                    <a href="{{path('app_cart_remove',{'product_id':item.product.id})}}" class="btn btn-danger">Remove</a>
+                                </td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan='4' class='text-center'><strong>SUM</strong></td>
+                            <td><strong>{{cart_manager.amount}}</strong></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="text-center">
+                <a href="{{path('app_products')}}" class="btn btn-secondary">Continue Shopping</a>
+                <a href="{{path('app_order')}}" class="btn btn-warning">Check out</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
 {% block javascripts %}
 {% endblock %}

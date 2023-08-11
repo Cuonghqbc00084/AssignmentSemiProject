@@ -15,7 +15,7 @@ class OrderFormType extends AbstractType
             ->add('customer_name')
             ->add('customer_address')
             ->add('customer_phone')
-            ->add('total_price')
+            // ->add('total_price')
             ->add('status')
         ;
     }
