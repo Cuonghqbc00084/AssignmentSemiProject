@@ -15,9 +15,9 @@
                 <td> Address </td>
                 <td> Phone Number </td>
                 <td> Total Price </td>
-                {# <td> Status </td> #}
+                <td> Status </td>
                 <td> Act </td>
-            </tr>
+            </tr>     
          </thead>
 
          <tbody>
@@ -29,16 +29,17 @@
                     <td>{{inv.getCustomerAddress()}}</td>
                     <td>{{inv.getCustomerPhone()}}</td>
                     <td>{{inv.getTotalPrice()}}</td>
-                    {# <td>{{inv.isStatus()}}
-                        {% if isStatus() == false %}
-                            <p>Deliveried</p>
-                        {% elseif isStatus() == true %}
-                            <p>Deliverying</p>
-                    </td> #}
+                    <td>{{inv.isStatus()}}
+                        {% if inv.isStatus() == 0 %}
+                            <p>Paid</p>
+                        {% elseif inv.isStatus() == 1 %}
+                            <p>Unpaid</p>
+                        {% endif %}
+                    </td>
                         
                     <td>
                         <a href="{{path('app_ds_Invoicedetail',{'id':inv.getId()})}}" class="btn btn-warning"> Detail</a>
-                        <a href="javascript:deleteinv('{{path('app_delete_invoice',{'id':inv.getId()})}}')" class="btn btn-danger"> Delete</a> 
+                        {# <a href="javascript:deleteinv('{{path('app_delete_invoice',{'id':inv.getId()})}}')" class="btn btn-danger"> Delete</a>  #}
                     </td>
                 </tr>
              {% endfor %}

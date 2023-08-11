@@ -15,4 +15,4 @@ class AboutController extends AbstractController
             'controller_name' => 'AboutController',
         ]);
     }
-}
+} 

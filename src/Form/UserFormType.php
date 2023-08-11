@@ -20,7 +20,7 @@ class UserFormType extends AbstractType
             ->add('first_name',TextType::class)
             ->add('last_name',TextType::class)
         ;
-    }
+    }      
 
     public function configureOptions(OptionsResolver $resolver): void
     {

@@ -18,18 +18,36 @@
 {% endblock %}
 
 {% block body %}
+
+<table width="100%" border="1" style="border-collapse:collapse">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="product_taital">Our Products</h1>
+        </div>
+    </div>
    <table width="100%" border="1" style="border-collapse:collapse">
     <div class="row">
                <div class="col-sm-12">
                   <h1 class="product_taital">Our Products</h1>
                </div>
             </div>
+
     {% for sp in data %}
-        {% if loop.index % 3 == 0 %}
+        {% if loop.index0 % 3 == 0 %}
             <tr>
         {% endif %}
         <td width="33%">
+            {# <a href="{{ path('product_detail', {'id': row.product_id}) }}"> #}
                 <center>
+
+                    <button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':sp.getId()})}}" class="btn btn-primary btn-sm">Add to cart</button>
+
+                </center>
+            </form>
+
+        {% if loop.index0 % 3 == 2 %}
+            </td></tr>
+
                     <b>{{ sp.name }}</b><br/>
                     <img src="{{ asset('uploads/sanpham/' ~ sp.photo) }}" height="100px"><br/>
                     {{ sp.price|number_format(0) }} USD   
@@ -40,12 +58,14 @@
                 </form> 
         {% if loop.index % 3 == 2 %}
             </tr>
+
         {% endif %}
         
+        
     {% endfor %}
+
     {% if data|length % 3 != 0 %}
         </tr>
     {% endif %}
-    
 </table>
 {% endblock %} 

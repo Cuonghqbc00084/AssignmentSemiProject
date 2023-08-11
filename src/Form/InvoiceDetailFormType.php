@@ -17,7 +17,7 @@ class InvoiceDetailFormType extends AbstractType
             ->add('price')
             ->add('o')
             ->add('item')
-        ;
+        ;      
     }
 
     public function configureOptions(OptionsResolver $resolver): void
