@@ -1,14 +1,13 @@
-{# {% form_theme User_form 'bootstrap_5_layout.html.twig'%}  #}
-{% extends 'baseuser.html.twig' %}
+{% form_theme profile_form 'bootstrap_5_layout.html.twig'%} 
+{% extends 'base.html.twig' %}
 
 {% block title %}User{% endblock %}
 
 {% block body %}
-
 <div class="container">
-    {{form_start(User_form)}}
-    {{form_widget(User_form)}}
-    <input type="submit" value="Modify" class="btn btn-primary"/>
-    {{form_end(User_form)}}
+    {{form_start(profile_form)}}
+    {{form_widget(profile_form)}}
+    <input type="submit" value="submit" class="btn btn-primary"/>
+    {{form_end(profile_form)}}
 </div>
-{% endblock %}
+{% endblock %} 

@@ -44,9 +44,9 @@
             <h2>Customer Information</h2>
             {{ form_start(order_form) }}
             {{ form_widget(order_form) }}
-            <div class="text-center mt-3">
-                <a href="{{ path('app_ds_user_invoice') }}" class="btn btn-primary">Confirm Order</a>
-            </div>
+            {# <div class="text-center mt-3"> #}
+            {# <input type="submit" value="Confirm Order" class="btn btn-primary" /> #}
+                <a href="{{ path('app_ds_user_invoice') }}" class="btn btn-primary">Confirm Order</a> </div>
             {{ form_end(order_form) }}
         </div>
     </div>
@@ -59,4 +59,10 @@
 {% if message is not empty %}
     <script> alert("{{message}}");</script>
 {% endif %}
-{% endblock %}
+{% endblock %} 
+
+
+
+
+
+

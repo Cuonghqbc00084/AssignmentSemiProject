@@ -18,8 +18,9 @@ class InvoiceController extends AbstractController
     public function __construct(private UrlGeneratorInterface $urlGenerator)
         {
         }
-
-    #[Route('/invoice/ds', name: 'app_ds_invoice')]
+    
+       
+    #[Route('/invoice/ds', name: 'app_ds_Invoice')]
     public function list_inv(EntityManagerInterface $em): Response
     {
         $query = $em->createQuery('SELECT inv FROM App\Entity\Order inv');
@@ -28,6 +29,7 @@ class InvoiceController extends AbstractController
             "data"=>$lSp
         ]);
     }
+
 
     #[Route('user/invoice/ds', name: 'app_ds_user_invoice')]
     public function list_user(EntityManagerInterface $em): Response
@@ -38,4 +40,6 @@ class InvoiceController extends AbstractController
             "data"=>$lSp
         ]);
     }
-}   
+
+
+}
