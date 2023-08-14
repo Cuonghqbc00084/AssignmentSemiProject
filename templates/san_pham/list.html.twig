@@ -33,7 +33,7 @@
                     <td>{{sp.getId()}}</td>
                     <td><img src="{{asset('uploads/sanpham/' ~ sp.getPhoto())}}" height="150" /></td>
                     <td>{{sp.getName()}}</td>
-                    <td>{{sp.getPrice()}}</td>
+                    <td>{{sp.getPrice()}} $</td>
                     <td>
                         <a href="{{path('app_edit_san_pham',{'id':sp.getId()})}}" class="btn btn-danger"> Edit</a>
                         <a href="javascript:deletesp('{{path('app_delete_san_pham',{'id':sp.getId()})}}')" class="btn btn-warning"> Delete</a> 
