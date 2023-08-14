@@ -11,7 +11,6 @@ use App\Form\ProfileFormType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-
 use App\Entity\User;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
@@ -24,7 +23,6 @@ class ProfileController extends AbstractController
             return $this->render('profile/list.html.twig', [
                 'user' => $user,
             ]);
-        
         }
 }
     

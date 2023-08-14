@@ -1,6 +1,6 @@
 {% extends 'baseuser.html.twig' %}
 
-{% block title %}Hello ProfileController!{% endblock %}
+{# {% block title %}Hello ProfileController!{% endblock %} #}
 
 {% block body %}
 <style>
@@ -9,11 +9,17 @@
 </style>
 <div class="container">
     <table class="table" style="text-align: center">
-    <h1>User Profile</h1>
+            <h1>User Profile</h1>
     <tr>
-        <td>User name</td>
-        <td>First name</td>
-        <td>Last name</td>
+        <tr>
+            <td>User name:</td>
+        </tr>
+        <tr>
+            <td>First name:</td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+        </tr>
     </tr>
         <td>{{ user.username }}</td>
         <td>{{ user.firstName }}</td>
