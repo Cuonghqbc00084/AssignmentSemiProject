@@ -60,18 +60,17 @@
         </div>
     #}
     <div id="button">
-        <button  type="submit" id="submit"> 
-            Sign in
-        </button>
-
+                <button type="submit" id="submit" class="btn btn-primary">Sign in</button>
+                <div style="text-align: center; margin-top: 10px;">
+                    <lable>You haven't had an account yet? </lable><a href="{{ path('app_register')}}">Register</a>
+                </div>
     </div>
+    
      <br><br><br>
 
     </div> <br><br><br>
 
-    <div style="text-align: center;">
-        <lable>You haven't had account yet  </lable><a href="{{ path('app_register')}}">Register</a>
-    </div>
+    
     
          
 </form>

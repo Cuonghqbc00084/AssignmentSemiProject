@@ -23,7 +23,7 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
 
     public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
-    }
+    }      
 
     public function authenticate(Request $request): Passport
     {
@@ -42,15 +42,21 @@ class AppCustomAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
-            return new RedirectResponse($targetPath);
+        // if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
+        //     return new RedirectResponse($targetPath);
+        // }
+        $user = $token->getUser();
+        if (in_array('ROLE_ADMIN', $user->getRoles())) {
+            return new RedirectResponse($this->urlGenerator->generate('app_user_manager'));
+        } else {
+            return new RedirectResponse($this->urlGenerator->generate('app_index'));
         }
 
         // For example:
-        return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham'));
+        
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__); 
     }
-
+    
     protected function getLoginUrl(Request $request): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);

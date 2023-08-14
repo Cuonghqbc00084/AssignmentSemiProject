@@ -12,3 +12,15 @@
     {{form_end(feedback_form)}}
 </div>
 {% endblock %}
+
+{% block javascripts %}
+ <script>
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         }
+      </script> 
+{% endblock %}

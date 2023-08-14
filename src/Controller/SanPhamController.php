@@ -39,7 +39,7 @@ class SanPhamController extends AbstractController
             $em->persist($data);
             $em->flush();
 
-            return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham')); #kết nối dữ liều giữ trang sanpham và trang sanphamds
+            return new RedirectResponse($this->urlGenerator->generate('app_ds_san_pham')); 
             // return new Response("<p>Product Add Succefully!</p>");
         }
 
@@ -103,10 +103,7 @@ class SanPhamController extends AbstractController
             "data"=>$lSp
         ]);
     }
-
-  
-
-    
-
 }
     
+
+

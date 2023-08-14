@@ -25,16 +25,16 @@
                         <tr>
                             <td>{{ loop.index }}</td>
                             <td>{{ item.product.id }} - {{ item.product.name }}</td>
-                            <td>{{ item.product.Price }}</td>
+                            <td>{{ item.product.Price }}$</td>
                             <td>{{ item.quantity }}</td>
-                            <td>{{ item.amount }}</td>
+                            <td>{{ item.amount }}$</td>
                         </tr>
                         {% endfor %}
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan='4' class='text-center'><strong>SUM</strong></td>
-                            <td><strong>{{ cart_manager.amount }}</strong></td>
+                            <td><strong>{{ cart_manager.amount }}</strong>$</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -59,6 +59,17 @@
 {% if message is not empty %}
     <script> alert("{{message}}");</script>
 {% endif %}
+
+
+ <script>
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         }
+      </script> 
 {% endblock %} 
 
 

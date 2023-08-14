@@ -1,0 +1,64 @@
+{% extends 'baseuser.html.twig' %}
+
+{% block stylesheets %}
+      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+      <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet"/>
+      <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="d-flex align-items-center">
+                <div class="product-image mr-3">
+                    <img src="{{ asset('uploads/sanpham/' ~ product.getPhoto()) }}" style="max-height: 250px; width: auto;" />
+                </div>
+                <div class="product-detail">
+                    <h1 class="mb-3">{{ product.getName() }}</h1>
+                    <div class="product-info">
+                        <p><strong>Product Code:</strong> {{ product.getId() }}</p>
+                        <p><strong>Price:</strong> {{ product.getPrice() }} $</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <form method="post" action="{{ path('app_cart_add', {'product_id': product.getId()}) }}">
+                    <button type="submit" class="btn btn-primary btn-sm mt-3">Add to cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+ <script>
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         }
+      </script> 
+{% endblock %}
+
+
+
+
+
+
+
+
