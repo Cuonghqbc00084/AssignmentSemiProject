@@ -78,3 +78,4 @@ class CustomerRegis
         return $this;
     }
 }
+

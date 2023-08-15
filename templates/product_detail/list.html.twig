@@ -1,0 +1,86 @@
+{% extends 'baseuser.html.twig' %}
+
+{# {% block title %}Hello ProductDetailController!{% endblock %} #}
+
+{% block stylesheets %}
+      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
+      {# <img src="{{ asset('Images/fevicon.png') }}" alt="Fevicon"/> #}
+      <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+      <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet"/>
+      <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+{% endblock %} 
+
+{% block body %}
+<table width="100%" border="1" style="border-collapse:collapse">
+    <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="product_taital">Products Detail</h1>
+               </div>
+    </div>  
+<div class="container">
+    <table class="table" style="text-align: center">
+        <thead>
+            <tr >
+                {# <td> No </td> #}
+                <td> Code  </td>
+                <td> Name </td>
+                <td> Photo </td>
+                <td> Price</td>
+            </tr>
+         </thead>
+         <tbody>
+            {% for detail in data %}
+            {# <td>{{loop.index}}</td> #}
+                <tr>
+                    {# <td>{{loop.index}}</td> #}
+                    <td>{{detail.getId()}}</td>
+                    <td>{{detail.getName()}}</td>
+                    <td><img src="{{asset('uploads/sanpham/' ~ detail.getphoto())}}" height="150" /></td>
+                    <td>{{detail.getPrice()}}</td>
+                    {# <td><button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':detail.getId()})}}">Add to cart</button></td> #}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% block javascripts %}
+      <script src="{{ asset('js/jquery.min.jss') }}"></script>
+      <script src="{{ asset('js/popper.min.js') }}"></script>
+      <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
+      <script src="{{ asset('js/plugin.js') }}"></script>
+      <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+      <script src="{{ asset('js/custom.js') }}"></script>
+      <script src="{{ asset('js/owl.carousel.js') }}"></script>
+   
+      {# <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="js/owl.carousel.js"></script> #}
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>  
+      <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <script>
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "100%";
+                }
+                
+                function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                }
+        </script> 
+{% endblock %}
+

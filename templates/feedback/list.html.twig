@@ -30,10 +30,9 @@
                     {# <td>{{fb.getTime()}}</td> #}
                     <td>{{fb.getTitle()}}</td>
                     <td>{{fb.getMessage()}}</td>
-                     <td>
+                        <td>
                         <a href="javascript:deletefb('{{path('app_delete_feedback',{'id':fb.getId()})}}')" class="btn btn-warning"> Delete</a> 
-    
-                    </td>
+                        </td>
                 </tr>
              {% endfor %}
         </tbody>
@@ -51,6 +50,7 @@
     }
 </script>
 {% endblock %}
+
 
 
  

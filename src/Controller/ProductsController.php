@@ -64,8 +64,6 @@ class ProductsController extends AbstractController
             'results' => $results,
         ]);
     }
-    
-
 }
 
 

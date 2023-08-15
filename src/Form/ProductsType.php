@@ -32,3 +32,4 @@ class ProductsType extends AbstractType
         ]);
     }
 }
+
