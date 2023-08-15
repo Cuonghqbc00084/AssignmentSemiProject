@@ -28,13 +28,22 @@
                     <td>{{inv.getCustomerName()}}</td>
                     <td>{{inv.getCustomerAddress()}}</td>
                     <td>{{inv.getCustomerPhone()}}</td>
-                    <td>{{inv.getTotalPrice()}}</td>
+                    <td>{{inv.getTotalPrice()}}$</td>
                     <td>{{inv.isStatus()}}
                         {% if inv.isStatus() == 0 %}
                             <p>Paid</p>
                         {% elseif inv.isStatus() == 1 %}
                             <p>Unpaid</p>
                         {% endif %}
+
+
+
+                        {# {% if inv.isStatus() == false %}
+                        <p>Paid</p>
+                        {% elseif inv.isStatus() == true %}
+                            <p>Unpaid</p>
+                        {% endif %}  #}
+                        
                     </td>
                         
                     <td>

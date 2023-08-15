@@ -3,6 +3,7 @@
 {# {% block title %}Products!{% endblock %} #}
 
 {% block stylesheets %}
+
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
@@ -15,23 +16,18 @@
       <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+     
+   
 {% endblock %}
 
 {% block body %}
-
 <table width="100%" border="1" style="border-collapse:collapse">
     <div class="row">
         <div class="col-sm-12">
             <h1 class="product_taital">Our Products</h1>
         </div>
     </div>
-   <table width="100%" border="1" style="border-collapse:collapse">
-    <div class="row">
-               <div class="col-sm-12">
-                  <h1 class="product_taital">Our Products</h1>
-               </div>
-            </div>
-
 
     {% for sp in data %}
         {% if loop.index0 % 3 == 0 %}
@@ -45,30 +41,15 @@
             </center>
             <form>
                 <center>
-
                     <button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':sp.getId()})}}" class="btn btn-primary btn-sm">Add to cart</button>
-
                 </center>
+                <center>
+                    <a formmethod="post" href="{{path('app_product_detail',{'id':sp.getId()})}}" class="btn btn-warning">Detail</a>
+                </center> 
             </form>
 
         {% if loop.index0 % 3 == 2 %}
             </td></tr>
-
-                    <b>{{ sp.name }}</b><br/>
-                    <img src="{{ asset('uploads/sanpham/' ~ sp.photo) }}" height="100px"><br/>
-                    {{ sp.price|number_format(0) }} USD   
-                </center> 
-                <form>
-                
-                <center><button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':sp.getId()})}}">Add to cart</button> </center>
-                <center><a formmethod="post" href="{{path('app_product_detail',{'id':sp.getId()})}}" class="btn btn-warning">Detail</a></center> 
-          
-                </form> 
-                {# <center><a href="{{path('app_cart_add',{'product_id':sp.getId()})}}"><button>Add to cart</button></a></center>
-        </td> #}
-        {% if loop.index % 3 == 2 %}
-            </tr>
-
         {% endif %}
     {% endfor %}
 
@@ -76,8 +57,6 @@
         </tr>
     {% endif %}
 </table>
-
-
 {% endblock %}  
 
 {% block javascripts %}
@@ -104,4 +83,3 @@
          }
       </script> 
 {% endblock %}
-
