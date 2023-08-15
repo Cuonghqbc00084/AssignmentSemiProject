@@ -29,3 +29,4 @@ class UserFormType extends AbstractType
         ]);
     }
 }
+

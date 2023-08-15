@@ -65,5 +65,4 @@ class ModifyProfileController extends AbstractController
             'user' => $user,
         ]);
     }
-
 }

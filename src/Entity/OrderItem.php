@@ -80,5 +80,4 @@ class OrderItem
         return $this;
     }
 
-    
 }

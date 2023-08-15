@@ -65,12 +65,4 @@ class UserController extends AbstractController
             return new RedirectResponse($this->ug->generate('app_user_manager'));
         }
 
-    
-    
-
-
-
-    
-
-
 }

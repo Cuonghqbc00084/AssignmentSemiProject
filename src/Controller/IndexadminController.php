@@ -17,8 +17,4 @@ class IndexadminController extends AbstractController
         ]);
 
     }
-
-    
-
-    
 }

@@ -47,8 +47,7 @@ class InvoiceDetailController extends AbstractController
         return $this->render('invoice_detail/list.html.twig', [
             "data"=>$order->getOrderItems()
         ]);
-
-        
+ 
     }
 }
      

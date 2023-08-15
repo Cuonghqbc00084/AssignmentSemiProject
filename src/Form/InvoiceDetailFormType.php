@@ -27,3 +27,4 @@ class InvoiceDetailFormType extends AbstractType
         ]);
     }
 }
+
