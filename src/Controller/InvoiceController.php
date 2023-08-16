@@ -50,6 +50,16 @@ class InvoiceController extends AbstractController
         ]);
     }
 
+    #[Route('user/invoice/ds', name: 'app_ds_user_invoice')]
+    public function list_user(EntityManagerInterface $em): Response
+    {
+        $query = $em->createQuery('SELECT inv FROM App\Entity\Order inv');
+        $lSp = $query->getResult();
+        return $this->render('orderuser/list.html.twig', [
+            "data"=>$lSp
+        ]);
+    }
+
     // #[Route('/invoice/{id}/delete', name: 'app_delete_invoice')]
     // public function delete(EntityManagerInterface $em, int $id, Request $req): Response
     //     {

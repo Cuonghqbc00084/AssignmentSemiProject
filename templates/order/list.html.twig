@@ -1,0 +1,92 @@
+{% form_theme order_form 'bootstrap_4_layout.html.twig' %}
+{% extends 'baseuser.html.twig' %}
+
+{% block title %}Cart manager
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Order</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_manager.items %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ item.product.id }} - {{ item.product.name }}</td>
+                            <td>{{ item.product.Price }}$</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.amount }}$</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan='4' class='text-center'><strong>SUM</strong></td>
+                            <td><strong>{{ cart_manager.amount }}</strong>$</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+       <div class="col-md-6">
+    <h2>Customer Information</h2>
+    <div id="order_form">
+        <div class="form-group">
+            <label for="order_form_customer_name" class="required">Customer name</label>
+            <input type="text" id="order_form_customer_name" name="order_form[customer_name]" required="required" maxlength="255" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="order_form_customer_address" class="required">Customer address</label>
+            <input type="text" id="order_form_customer_address" name="order_form[customer_address]" required="required" maxlength="255" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="order_form_customer_phone" class="required">Customer phone</label>
+            <input type="text" id="order_form_customer_phone" name="order_form[customer_phone]" required="required" maxlength="12" class="form-control">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" id="order_form_status" name="order_form[status]" class="form-check-input" value="1">
+                <label class="form-check-label" for="order_form_status">Status</label>
+            </div>
+        </div>
+        <input type="hidden" id="order_form__token" name="order_form[_token]" value="58e5e5ca.520tUV03c3CQJP8mk0IT0HjI7WgU9mtHy9JOFczonWc.q1wZKR9gKhXXb8tU9zdYuQv_3SVOuFxz8ucGW7TF1h-fL140GlkZOtpviA">
+        <a href="{{ path('app_ds_user_invoice') }}" class="btn btn-primary">Confirm Order</a>
+    </div>
+	</div>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+{% if message is not empty %}
+    <script> alert("{{message}}");</script>
+{% endif %}
+
+
+ <script>
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         }
+      </script> 
+{% endblock %} 
+
+

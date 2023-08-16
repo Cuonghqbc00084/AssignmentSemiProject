@@ -1,12 +1,9 @@
 {% extends 'baseuser.html.twig' %}
 
-{# {% block title %}Hello ProductDetailController!{% endblock %} #}
-
 {% block stylesheets %}
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css"/>
-      {# <img src="{{ asset('Images/fevicon.png') }}" alt="Fevicon"/> #}
       <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
       <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
@@ -18,29 +15,50 @@
 {% endblock %}
 
 {% block body %}
-
 <div class="example-wrapper">
-    <table class="table" style="text-align: center">
-        <thead>
-            <tr >
-                <td> No </td>
-                <td> Product Code  </td>
-                <td> Photo </td>
-                <td> Product Name </td>
-                <td> Price </td>
-            </tr>
-         </thead>
-         <tbody>
-            {% for sp in data %}
-                <tr>
-                    <td>{{loop.index}}</td>
-                    <td>{{sp.getId()}}</td>
-                    <td><img src="{{asset('uploads/sanpham/' ~ sp.getPhoto())}}" height="150" /></td>
-                    <td>{{sp.getName()}}</td>
-                    <td>{{sp.getPrice()}}</td>
-                </tr>
-             {% endfor %}
-        </tbody>
-    </table>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="d-flex align-items-center">
+                <div class="product-image mr-3">
+                    <img src="{{ asset('uploads/sanpham/' ~ product.getPhoto()) }}" style="max-height: 250px; width: auto;" />
+                </div>
+                <div class="product-detail">
+                    <h1 class="mb-3">{{ product.getName() }}</h1>
+                    <div class="product-info">
+                        <p><strong>Product Code:</strong> {{ product.getId() }}</p>
+                        <p><strong>Price:</strong> {{ product.getPrice() }} $</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <form method="post" action="{{ path('app_cart_add', {'product_id': product.getId()}) }}">
+                    <button type="submit" class="btn btn-primary btn-sm mt-3">Add to cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-{% endblock %}  #}
+{% endblock %}
+
+
+{% block javascripts %}
+ <script>
+         function openNav() {
+           document.getElementById("mySidenav").style.width = "100%";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidenav").style.width = "0";
+         }
+      </script> 
+{% endblock %}
+
+
+
+
+
+
+
+

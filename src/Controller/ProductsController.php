@@ -42,28 +42,28 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    #[Route('/search', name: 'app_search')]
-    public function search(EntityManagerInterface $em): Response
-    {
-        $query = $em->createQuery('SELECT sp FROM App\Entity\SP sp');
-        $lSp = $query->getResult();
-        $form = $this->createForm(ProductsType::class);
-        // $form->handleRequest($request);
+    // #[Route('/search', name: 'app_search')]
+    // public function search(EntityManagerInterface $em): Response
+    // {
+    //     $query = $em->createQuery('SELECT sp FROM App\Entity\SP sp');
+    //     $lSp = $query->getResult();
+    //     $form = $this->createForm(ProductsType::class);
+    //     // $form->handleRequest($request);
 
-        $results = [];
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            // $searchTerm = $data['name'];
-            // Implement your search logic here using Doctrine or any other method
-            // $results = $this->getDoctrine()
-            //     ->getRepository(Product::class)
-            //     ->findBy(['name' => $searchTerm]);
-        }
-        return $this->render('products/list.html.twig', [
-            'form' => $form->createView(),
-            'results' => $results,
-        ]);
-    }
+    //     $results = [];
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $data = $form->getData();
+    //         // $searchTerm = $data['name'];
+    //         // Implement your search logic here using Doctrine or any other method
+    //         // $results = $this->getDoctrine()
+    //         //     ->getRepository(Product::class)
+    //         //     ->findBy(['name' => $searchTerm]);
+    //     }
+    //     return $this->render('products/list.html.twig', [
+    //         'form' => $form->createView(),
+    //         'results' => $results,
+    //     ]);
+    // }
 }
 
 

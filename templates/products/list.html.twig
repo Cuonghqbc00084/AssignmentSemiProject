@@ -22,6 +22,7 @@
 {% endblock %}
 
 {% block body %}
+
 <table width="100%" border="1" style="border-collapse:collapse">
     <div class="row">
         <div class="col-sm-12">
@@ -34,29 +35,36 @@
             <tr>
         {% endif %}
         <td width="33%">
-            <center>
+            <div style="text-align: center;">
                 <b>{{ sp.name }}</b><br/>
                 <img src="{{ asset('uploads/sanpham/' ~ sp.photo) }}" height="100px"><br/>
-                {{ sp.price|number_format(0) }} VND
-            </center>
-            <form>
-                <center>
-                    <button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':sp.getId()})}}" class="btn btn-primary btn-sm">Add to cart</button>
-                </center>
-                <center>
-                    <a formmethod="post" href="{{path('app_product_detail',{'id':sp.getId()})}}" class="btn btn-warning">Detail</a>
-                </center> 
-            </form>
-
-        {% if loop.index0 % 3 == 2 %}
-            </td></tr>
+                {{ sp.price|number_format(0) }} $<br/>
+                <form style="display: flex; flex-direction: column; align-items: center; margin-top: 10px;">
+                    <button type="submit" formmethod="post" formaction="{{ path('app_cart_add', {'product_id': sp.getId()}) }}" class="btn btn-primary btn-sm" style="margin-bottom: 5px;">Add to Cart</button>
+                    <a formmethod="post" href="{{ path('app_product_detail', {'id': sp.getId()}) }}" class="btn btn-warning">Detail</a>
+                </form>
+            </div>
+        </td>
+        {% if loop.index0 % 3 == 2 or loop.last %}
+            </tr>
         {% endif %}
     {% endfor %}
-
-    {% if data|length % 3 != 0 %}
-        </tr>
-    {% endif %}
 </table>
+
+{# <form action="{{ path('app_products') }}" method="GET">
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort">
+        <option value="name_asc">Name (Ascending)</option>
+        <option value="name_desc">Name (Descending)</option>
+        <option value="price_asc">Price (Low to High)</option>
+        <option value="price_desc">Price (High to Low)</option>
+    </select>
+    <button type="submit">Sort</button>
+</form> #}
+
+
+
+
 {% endblock %}  
 
 {% block javascripts %}
@@ -82,4 +90,6 @@
            document.getElementById("mySidenav").style.width = "0";
          }
       </script> 
+
 {% endblock %}
+
